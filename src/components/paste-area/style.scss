@@ -1,0 +1,25 @@
+/**
+ * Paste Area
+ *
+ * The textarea for pasting the mixed CSS input text.
+ */
+
+@import '../../theme/index.scss';
+
+.paste-area {
+	display: block;
+}
+
+.paste-area__textarea {
+    display: block;
+    height: 50%;
+    margin: 0 auto $spacer-sm;
+    min-height: calc(#{$spacer-xl} + #{$spacer-sm});
+    padding: $spacer-xs $spacer-sm;
+    resize: vertical;
+    width: 100%;
+}
+
+.paste-area__label {
+    font-size: $font-size-sm;
+}

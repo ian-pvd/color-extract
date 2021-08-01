@@ -1,0 +1,31 @@
+/**
+ * Index CSS
+ *
+ * Styles for the document root.
+ */
+
+@import-normalize;
+@import './theme/index.scss';
+
+body {
+	background-color: hsl(192deg, 5%, 90%);
+	font-family: sans-serif;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 $spacer-sm;
+}
