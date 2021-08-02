@@ -9,3 +9,14 @@
 .results-area {
 	display: block;
 }
+
+.results-area__list {
+    list-style: none;
+    margin: 0 0 $spacer;
+    padding: 0;
+}
+
+.results-area__list-item {
+    margin: 0 0 $spacer-sm;
+    padding: 0;
+}

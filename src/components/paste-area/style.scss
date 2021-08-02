@@ -7,11 +7,15 @@
 @import '../../theme/index.scss';
 
 .paste-area {
-	display: block;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .paste-area__textarea {
     display: block;
+    flex-grow: 1;
     height: 50%;
     margin: 0 auto $spacer-sm;
     min-height: calc(#{$spacer-xl} + #{$spacer-sm});

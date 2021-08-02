@@ -10,20 +10,14 @@ import ResultsArea from '../results-area';
 import './style.scss';
 
 class ColorExtract extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {colorsList: []};
-  }
-
   render() {
     return(
       <div className="color-extract">
-        <div className="color-extract__paste" colorsList={this.colorsList}>
-          <PasteArea />
+        <div className="color-extract__paste">
+          <PasteArea extractColors={this.props.extractColors} />
         </div>
         <div className="color-extract__results">
-          <ResultsArea colorsList={this.colorsList} />
+          <ResultsArea colorsList={this.props.colorsList} />
         </div>
       </div>
     );

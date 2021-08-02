@@ -5,16 +5,9 @@
  */
 
 import React from 'react';
-import { getColors } from './../../utilities/color.js';
 import './style.scss';
 
 class PasteArea extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {colorsList: this.props.colorsList};
-    this.handleChange = this.handleChange.bind(this);
-  }
 
   /**
    * Handle Change
@@ -22,13 +15,20 @@ class PasteArea extends React.Component {
    * Process the textarea value on input.
    */
   handleChange = (e) => {
-      this.setState({colorsList: getColors(e.target.value)});
+      e.preventDefault();
+      const input = e.target.value;
+      this.props.extractColors(input);
   };
 
   render() {
     return(
       <div className="paste-area">
-        <textarea id="paste-area" name="paste-area" className="paste-area__textarea" onChange={this.handleChange}></textarea>
+        <textarea
+          id="paste-area"
+          name="paste-area"
+          className="paste-area__textarea"
+          onChange={this.handleChange}
+        ></textarea>
         <label className="paste-area__label" htmlFor="paste-area">Paste your mixed CSS into the textarea to extract the colors.</label>
       </div>
     );
