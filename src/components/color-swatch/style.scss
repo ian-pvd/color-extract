@@ -1,0 +1,36 @@
+/**
+ * Color
+ *
+ * A single color swatch.
+ */
+
+@import '../../theme/index.scss';
+
+.color-swatch {
+    display: flex;
+    margin: 0;
+    outline: 1px solid rgba(0, 0, 0, 0.8);
+    padding: $spacer-sm;
+    position: relative;
+}
+
+.color-swatch__chip {
+    background-color: var(--color);
+    content: '';
+    display: block;
+    height: 100%;
+    margin: 0 $spacer-sm 0 0;
+    min-height: 4rem;
+    width: 4rem;
+}
+
+.color-swatch__format {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.color-swatch__label {
+    min-width: 12rem;
+}

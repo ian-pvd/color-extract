@@ -37,3 +37,18 @@ export const dedupeColors = (colorsList) => {
 
   return [...new Set(colorsList)];
 };
+
+/**
+ * CMYK String
+ *
+ * Formats a color value to CMYK percentages.
+ *
+ * @param  {object} color Object from the npm/color package.
+ * @return {string}       Formatted CMYK conversion.
+ */
+export const cmykString = (color) => {
+  // Convert the color to an array of CMYK values.
+  let cmyk = color.cmyk().round().array();
+  // Format each item in the array and return it as a string.
+  return cmyk.map((value) => {return `${value}%`}).join(', ');
+}

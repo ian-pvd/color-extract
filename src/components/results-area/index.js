@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import Color from '../color';
+import ColorSwatch from '../color-swatch';
 import './style.scss';
 
 class ResultsArea extends React.Component {
@@ -17,7 +17,7 @@ class ResultsArea extends React.Component {
         {this.props.colorsList.map((colorKey) => {
           return(
             <li key={colorKey} className="results-area__list-item">
-              <Color color={colorKey} />
+              <ColorSwatch color={colorKey} />
             </li>
           )
         })}
