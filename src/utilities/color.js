@@ -80,7 +80,8 @@ export const postcssString = (color) => {
  */
 export const cmykString = (color) => {
   // Convert the color to an array of CMYK values.
-  let cmyk = color.cmyk().round().array();
+  const cmyk = color.cmyk().round().array();
+  const cmykLabels = ['C', 'M', 'Y', 'K'];
   // Format each item in the array and return it as a string.
-  return cmyk.map((value) => {return `${value}%`}).join(', ');
+  return cmyk.map((value, i) => {return `${cmykLabels[i]} ${value}%`}).join(', ');
 }
