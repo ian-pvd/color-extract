@@ -8,6 +8,13 @@ import slugify from 'slugify';
 /**
  * Get Colors
  *
+ * Uses regex to find color strings in a blob of text.
+ *
+ * TODO: Prevent this function from crashing the browser on very large blocks
+ * of text by using a webworker to complete this request in the background.
+ * @link https://stackoverflow.com/a/10344560/1299588
+
+ *
  * @param  {string} input Text to check for color values.
  * @return {object}       An array of colors found.
  */
@@ -37,18 +44,32 @@ export const dedupeColors = (colorsList) => {
       colorsList[i] = `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`;
     }
   });
-
-  /**
-   * Dedupe Named Colors
-   *
-   * TODO: When deduping named colors for the SCSS/PostCSS block, collect all
-   * hex values that match a color name slug and average them together.
-   *
-   * @link https://www.npmjs.com/package/@bencevans/color-array-average
-   */
-
   return [...new Set(colorsList)];
 };
+
+/**
+ * Named Colors
+ *
+ * Returns a list of unique color names with an associated hex color.
+ *
+ * TODO: When deduping named colors for the SCSS/PostCSS block, collect all
+ * hex values that match a color name slug and average them together.
+ *
+ * @link https://www.npmjs.com/package/@bencevans/color-array-average
+ */
+export const namedColors = (colorsList) => {
+  // Create an empty array for named colors.
+  // Iterate through every unique hex color in the list.
+    // Convert each color to a slug.
+    // Check if that slug exists in the named colors array.
+      // If the slug exists, add the new hex color to the array nested under that slug.
+      // If the slug does not exist, add it to the named colors array in a nested array.
+  // Iterate through each slug in the named colors array.
+    // If the array of nested hex colors contains one item...
+      // Convert it to a string.
+      // Else, average the array of hex values store the result as a string.
+  // Return the processed list of named colors.
+}
 
 /**
  * SCSS String
