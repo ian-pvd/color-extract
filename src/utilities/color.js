@@ -2,6 +2,9 @@
  * Color Utilities
  */
 
+import ntc from '@yatiac/name-that-color';
+import slugify from 'slugify';
+
 /**
  * Get Colors
  *
@@ -35,8 +38,37 @@ export const dedupeColors = (colorsList) => {
     }
   });
 
+  /**
+   * Dedupe Named Colors
+   *
+   * TODO: When deduping named colors for the SCSS/PostCSS block, collect all
+   * hex values that match a color name slug and average them together.
+   *
+   * @link https://www.npmjs.com/package/@bencevans/color-array-average
+   */
+
   return [...new Set(colorsList)];
 };
+
+/**
+ * SCSS String
+ *
+ * Formats a color value as an SCSS variable.
+ */
+export const scssString = (color) => {
+  return `$color-${slugify(ntc(color).colorName,{lower: true})}: ${color};`;
+}
+
+
+/**
+ * PostCSS String
+ *
+ * Formats a color value as a PostCSS variable.
+ */
+export const postcssString = (color) => {
+  return `--color-${slugify(ntc(color).colorName,{lower: true})}: ${color};`;
+}
+
 
 /**
  * CMYK String

@@ -7,30 +7,58 @@
 @import '../../theme/index.scss';
 
 .color-swatch {
+    background-color: #FFF;
     display: flex;
     margin: 0;
-    outline: 1px solid rgba(0, 0, 0, 0.8);
+    outline: 1px solid rgba(0, 0, 0, 0.125);
     padding: $spacer-sm;
     position: relative;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.125);
 }
 
 .color-swatch__chip {
-    background-color: var(--color);
-    content: '';
+    background: repeating-conic-gradient(#fff 0deg 90deg, grey 0deg 180deg) 0 0/40px 40px round;
+    background-size: 2rem 2rem;
     display: block;
-    height: 100%;
     margin: 0 $spacer-sm 0 0;
     min-height: 4rem;
+    outline: 1px solid rgba(0, 0, 0, 0.25);
+    position: relative;
     width: 4rem;
+
+    &::before {
+        background: var(--swatch-color);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
 }
 
-.color-swatch__format {
-    display: flex;
+.color-swatch__data {
+    flex-grow: 1;
+}
+
+.color-swatch__list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+.color-swatch__list-item {
+    display: flex;
+}
+
 .color-swatch__label {
-    min-width: 12rem;
+    min-width: 6rem;
+}
+
+.color-swatch__value {
+    flex-grow: 1;
 }
