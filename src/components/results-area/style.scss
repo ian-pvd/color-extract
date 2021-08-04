@@ -11,12 +11,14 @@
 }
 
 .results-area__list {
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0 0 $spacer;
     padding: 0;
 }
 
 .results-area__list-item {
-    margin: 0 0 $spacer-sm;
+    margin: 0 $spacer-sm $spacer-sm 0;
     padding: 0;
 }

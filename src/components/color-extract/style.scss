@@ -7,16 +7,13 @@
 @import '../../theme/index.scss';
 
 .color-extract {
-    display: flex;
     margin: 0 auto $spacer;
 }
 
 .color-extract__paste {
-    margin: 0 $spacer 0 0;
-    flex-grow: 1;
+    margin: 0 0 $spacer;
 }
 
 .color-extract__results {
     margin: 0;
-    min-width: calc(#{$column} * 3);
 }

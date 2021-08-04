@@ -6,4 +6,5 @@
 	max-width: $width-content;
 	min-height: calc(100vh - #{$spacer-lg});
 	width: 100%;
+	padding: 0 $spacer;
 }
