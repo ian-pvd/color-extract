@@ -8,7 +8,7 @@ import React from 'react';
 /* Component dependencies. */
 import Branding from './components/branding';
 import ColorExtract from './components/color-extract';
-import { getColors } from './utilities/color.js';
+import { getColors, namedColors } from './utilities/color.js';
 
 /* Style dependencies. */
 import './app.scss';
@@ -17,12 +17,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      colorsList: []
+      colorsList: [],
+      namedColors: [],
     }
   }
 
   extractColors = (input) => {
     this.setState({ colorsList: getColors(input)});
+    console.log(namedColors(getColors(input)));
   };
 
   render() {

@@ -2,6 +2,7 @@
  * Color Utilities
  */
 
+import averageColor from '@bencevans/color-array-average';
 import ntc from '@yatiac/name-that-color';
 import slugify from 'slugify';
 
@@ -55,20 +56,46 @@ export const dedupeColors = (colorsList) => {
  * TODO: When deduping named colors for the SCSS/PostCSS block, collect all
  * hex values that match a color name slug and average them together.
  *
+ * DEV: Test string: #9012CC, #9311C9, #9111C2, #A5C4EA
+ *
  * @link https://www.npmjs.com/package/@bencevans/color-array-average
  */
 export const namedColors = (colorsList) => {
-  // Create an empty array for named colors.
+  // Create an empty array to store the names of the colors.
+  // TODO !!! Can't use name slugs as array keys.
+  const colorNames = [];
   // Iterate through every unique hex color in the list.
+  colorsList.forEach( (color) => {
     // Convert each color to a slug.
+    const name = slugify(ntc(color).colorName,{lower: true});
     // Check if that slug exists in the named colors array.
-      // If the slug exists, add the new hex color to the array nested under that slug.
-      // If the slug does not exist, add it to the named colors array in a nested array.
+    if (colorNames[name]) {
+        // If the slug exists, add the new hex color to the array nested under that slug.
+        colorNames[name].push(color);
+      } else {
+        // If the slug does not exist, add it to the named colors array in a nested array.
+        colorNames[name] = [color];
+      }
+  });
+
+  // TODO !!! colorNames array is not iterable & has length 0 because keys are strings.
+  colorNames.forEach(name=>{console.log(name)}); // Does not log anything to console!!!
+
+  // Create an empty array to store the unique color names.
+  const namedColors = [];
   // Iterate through each slug in the named colors array.
+  colorNames.forEach( (name) => {
     // If the array of nested hex colors contains one item...
-      // Convert it to a string.
-      // Else, average the array of hex values store the result as a string.
+    if (1 === name.length) {
+        // Move that item to the named colors array.
+        namedColors[name] = colorNames[name][0];
+      } else {
+        // Else, average the array of hex values store the result as a string.
+        namedColors[name] = averageColor(colorNames[name]);
+      }
+  });
   // Return the processed list of named colors.
+  return namedColors;
 }
 
 /**
