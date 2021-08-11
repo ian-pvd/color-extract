@@ -7,7 +7,7 @@ import ntc from '@yatiac/name-that-color';
 import slugify from 'slugify';
 
 /**
- * Get Colors
+ * Find Hex Colors
  *
  * Uses regex to find color strings in a blob of text.
  *
@@ -19,7 +19,7 @@ import slugify from 'slugify';
  * @param  {string} input Text to check for color values.
  * @return {object}       An array of colors found.
  */
-export const getColors = (input) => {
+export const findColors = (input) => {
   // Begin an empty array for storing colors.
   let colorsList = [];
   // Get all colors found in the input.
@@ -49,21 +49,15 @@ export const dedupeColors = (colorsList) => {
 };
 
 /**
- * Named Colors
+ * Get Named Colors
  *
  * Returns a list of unique color names with an associated hex color.
  *
- * TODO: When deduping named colors for the SCSS/PostCSS block, collect all
- * hex values that match a color name slug and average them together.
- *
- * DEV: Test string: #9012CC, #9311C9, #9111C2, #A5C4EA
- *
  * @link https://www.npmjs.com/package/@bencevans/color-array-average
  */
-export const namedColors = (colorsList) => {
+export const getNamedColors = (colorsList) => {
   // Create an empty array to store the names of the colors.
-  // TODO !!! Can't use name slugs as array keys.
-  const colorNames = [];
+  const colorNames = {};
   // Iterate through every unique hex color in the list.
   colorsList.forEach( (color) => {
     // Convert each color to a slug.
@@ -78,13 +72,10 @@ export const namedColors = (colorsList) => {
       }
   });
 
-  // TODO !!! colorNames array is not iterable & has length 0 because keys are strings.
-  colorNames.forEach(name=>{console.log(name)}); // Does not log anything to console!!!
-
   // Create an empty array to store the unique color names.
-  const namedColors = [];
+  const namedColors = {};
   // Iterate through each slug in the named colors array.
-  colorNames.forEach( (name) => {
+  Object.keys(colorNames).forEach( (name) => {
     // If the array of nested hex colors contains one item...
     if (1 === name.length) {
         // Move that item to the named colors array.
@@ -94,6 +85,7 @@ export const namedColors = (colorsList) => {
         namedColors[name] = averageColor(colorNames[name]);
       }
   });
+
   // Return the processed list of named colors.
   return namedColors;
 }

@@ -6,11 +6,11 @@
 
 @import '../../theme/index.scss';
 
-.results-area {
+.color-swatches {
 	display: block;
 }
 
-.results-area__list {
+.color-swatches__list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -18,7 +18,7 @@
     padding: 0;
 }
 
-.results-area__list-item {
+.color-swatches__list-item {
     margin: 0 $spacer-sm $spacer-sm 0;
     padding: 0;
     width: calc((100% - (#{$spacer-sm} * 2)) / 3);

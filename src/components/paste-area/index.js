@@ -29,7 +29,7 @@ class PasteArea extends React.Component {
           className="paste-area__textarea"
           onChange={this.handleChange}
         ></textarea>
-        <label className="paste-area__label" htmlFor="paste-area">Paste your mixed CSS into the textarea to extract the colors.</label>
+        <label className="paste-area__label" htmlFor="paste-area">Paste your text into here to extract colors.</label>
       </div>
     );
   }

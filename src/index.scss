@@ -7,11 +7,14 @@
 @import-normalize;
 @import './theme/index.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@400;700&subset=latin,latin-ext&display=swap');
+
 body {
 	background-color: hsl(0, 0, 97.5%);
-	font-family: sans-serif;
-	margin: 0;
 	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+	line-height: $line-height;
+	margin: 0;
 }
 
 *,
@@ -27,5 +30,13 @@ h3,
 h4,
 h5,
 h6 {
+	color: $c-heading;
 	margin: 0 0 $spacer-sm;
+}
+
+textarea {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: $font-size-mono;
+	letter-spacing: calc(1em / 100);
+	line-height: $line-height-sm;
 }
