@@ -17,3 +17,18 @@ $shadow-paste-area: inset 0 0 2rem darken($c-input, 2.5%);
 $shadow-paste-area-active: 0 1rem 2rem -1rem darken($c-input, 5%);
 $shadow-window-buttons: px(20) 0 $c-controls, px(40) 0 $c-controls;
 $shadow-window-buttons-active: px(20) 0 $c-controls-active, px(40) 0 $c-controls-active;
+
+
+// WIP ADD UI COLORWAYS
+$c-ui-bg: $color-shark-dark;
+$c-ui-shadow: inset 0 0 2rem darken($c-input, 2.5%);
+$c-ui-text: $color-boulder;
+$c-ui-input: $color-outer-space;
+$c-ui-bg-active: $color-shark-dark;
+$c-ui-shadow: 0 1rem 2rem -1rem darken($c-input, 1.25%);
+$c-ui-text-active: $color-silver;
+$c-ui-input-active: $color-outer-space;
+$c-ui-bg-focus: $color-shark-dark;
+$c-ui-shadow-focus: 0 1rem 2rem -1rem darken($c-input, 5%);
+$c-ui-text-focus: white;
+$c-ui-input-focus: $color-rolling-stone;
