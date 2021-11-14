@@ -7,60 +7,59 @@
 @import '../../theme/index.scss';
 
 .swatch {
-    background-color: #FFF;
-    display: flex;
-    margin: 0;
-    outline: 1px solid rgba(0, 0, 0, 0.125);
-    padding: $spacer-sm;
-    position: relative;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.125);
+	background-color: $c-swatch-bg;
+	border-radius: px(2);
+	box-shadow: $shadow-swatch;
+	display: flex;
+	margin: 0;
+	outline: $outline-swatch;
+	padding: $spacer-sm;
+	position: relative;
 }
 
 .swatch__chip {
-    background-size: 2rem 2rem;
-    background: repeating-conic-gradient(#fff 0deg 90deg, grey 0deg 180deg) 0 0/40px 40px round;
-    display: block;
-    flex-shrink: 0;
-    margin: 0 $spacer-sm 0 0;
-    min-height: 4rem;
-    outline: 1px solid rgba(0, 0, 0, 0.25);
-    position: relative;
-    width: 4rem;
+	background: $bg-transparency-grid;
+	display: block;
+	flex-shrink: 0;
+	margin: 0 $spacer-sm 0 0;
+	min-height: 4rem;
+	outline: $outline-swatch-chip;
+	position: relative;
+	width: 4rem;
 
-    &::before {
-        background: var(--swatch-color);
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-    }
+	&::before {
+		background: var(--swatch-color);
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
 }
 
 .swatch__data {
-    min-width: 0;
+	min-width: 0;
 }
 
 .swatch__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .swatch__list-item {
-    display: flex;
+	display: flex;
 }
 
 .swatch__label {
-    min-width: 4rem;
-    font-size: 14px;
+	font-size: px(14);
+	min-width: 4rem;
 }
 
 .swatch__value {
-    min-width: 0;
+	min-width: 0;
 }

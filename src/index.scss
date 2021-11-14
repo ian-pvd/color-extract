@@ -5,17 +5,17 @@
  */
 
 @import-normalize;
-@import './theme/index.scss';
 
+@import './theme/index.scss';
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@400;700&subset=latin,latin-ext&display=swap');
 
 body {
 	background-color: $c-background;
 	box-sizing: border-box;
+	color: $c-text;
 	font-family: 'Ubuntu', sans-serif;
 	line-height: $line-height;
 	margin: 0;
-	color: $c-text;
 }
 
 *,

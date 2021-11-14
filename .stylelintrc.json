@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "plugins": [
+    "stylelint-declaration-strict-value",
+    "stylelint-order"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "at-rule-no-unknown": [true, {"ignoreAtRules": ["function","return"]}],
+    "block-no-empty": [true, {"severity": "warning"}],
+    "color-function-notation": "legacy",
+    "color-hex-case": ["lower"],
+    "color-hex-length": "long",
+    "font-family-name-quotes": "always-unless-keyword",
+    "indentation": "tab",
+    "max-empty-lines": 1,
+    "max-line-length": [80, {"ignorePattern":["/^\\$/"]}],
+    "order/properties-alphabetical-order": true,
+    "scale-unlimited/declaration-strict-value": [["background", "border", "box-shadow", "outline", "/color$/"],{"ignoreValues": ["currentColor","inherit","initial","none","revert","transparent","unset"], "disableFix": true}],
+    "selector-class-pattern": "^.[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "string-quotes": "single",
+    "unit-allowed-list": [["em", "rem", "%", "vh", "vw", "deg"], {"ignoreProperties": {"px": ["/^\\$/","border","border-width","outline","outline-width"]}}]
+  }
+}

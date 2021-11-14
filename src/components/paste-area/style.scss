@@ -7,46 +7,82 @@
 @import '../../theme/index.scss';
 
 .paste-area {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin: 0;
-    position: relative;
+	background-color: $c-input;
+	border: $border-interface;
+	border-radius: px(6);
+	box-shadow: $shadow-paste-area;
+	margin: 0;
+	overflow: hidden;
+	padding: 3rem 0 0;
+	position: relative;
+
+	&::before {
+		background: $c-controls;
+		border-radius: 50%;
+		box-shadow: $shadow-window-buttons;
+		content: '';
+		display: block;
+		height: px(12);
+		left: px(13);
+		position: absolute;
+		top: 1rem;
+		width: px(12);
+		z-index: 10;
+	}
+
+	&:focus-within {
+		border: $border-interface-active;
+		box-shadow: $shadow-paste-area-active;
+
+		&::before {
+			background-color: $c-controls-active;
+			box-shadow: $shadow-window-buttons-active;
+		}
+	}
+}
+
+.paste-area__wrapper {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	max-height: 75vh;
+	min-height: 12rem;
+	position: relative;
+	width: 100%;
 }
 
 .paste-area__textarea {
-    background-color: $c-input;
-    border-radius: 1rem;
-    border: 1px solid darken($c-input, 0.75);
-    border: none;
-    box-shadow: inset 0 0 1rem darken($c-input, 0.75);
-    color: $c-text;
-    display: block;
-    flex-grow: 1;
-    height: 50vh;
-    margin: 0;
-    min-height: 8rem;
-    padding: $spacer-lg $spacer $spacer;
-    resize: vertical;
-    width: 100%;
-    z-index: 1;
+	background-color: transparent;
+	border: none;
+	color: $c-input-placeholder;
+	display: block;
+	flex-grow: 1;
+	height: 100%;
+	margin: 0;
+	outline: none;
+	padding: $spacer;
+	resize: vertical;
+	width: 100%;
+
+	&:focus {
+		color: $c-text;
+	}
 }
 
 .paste-area__label {
-    align-items: center;
-    bottom: 0;
-    color: $c-input-placeholder;
-    display: flex;
-    font-size: 1.75rem;
-    font-weight: 700;
-    justify-content: center;
-    left: 0;
-    margin: 0 auto $spacer-sm;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+	color: $c-input-placeholder;
+	font-size: 1.75rem;
+	font-weight: 700;
+	height: 100%;
+	left: 0;
+	padding: $spacer-lg;
+	pointer-events: none;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+
+	.paste-area:focus-within & {
+		display: none;
+	}
 }

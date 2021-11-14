@@ -4,18 +4,42 @@
 
 // Named color variables.
 $color-ghost: desaturate(#c4cad2, 100%);
+$color-gray: #808080;
 $color-mine-shaft: #2b2b2b;
 $color-outer-space: desaturate(#34383b, 100%);
 $color-regent-gray: desaturate(#8894a5, 100%);
+$color-rolling-stone: desaturate(#797a7c, 100%);
 $color-scorpion: #595959;
-$color-shark: desaturate(#26272a, 100%);
+$color-shark-dark: desaturate(#1d1e20, 100%);
+$color-shark: desaturate(#2e2f33, 100%);
+$color-silver: #bababa;
 $color-white: #ffffff;
-$shark-dark: desaturate(#1d1e20, 100%);
-$shark: desaturate(#2e2f33, 100%);
+$color-boulder: #757575;
 
 // Context specific variables.
 $c-background: $color-outer-space;
+$c-branding: $color-white;
+$c-controls-active: $color-scorpion;
+$c-controls: $color-outer-space;
 $c-header: $color-ghost;
-$c-input-placeholder: transparentize($color-ghost, 0.5);
-$c-input: $shark-dark;
+$c-input-inactive: $color-silver;
+$c-input-placeholder: $color-boulder;
+$c-input: $color-shark-dark;
 $c-text: $color-white;
+$c-swatch-bg: $color-white;
+
+// Backgrounds & Gradients
+$bg-transparency-grid: repeating-conic-gradient($color-white 0deg 90deg, $color-gray 0deg 180deg) 0 2rem/2rem 2rem round;
+
+// Borders & Outlines
+$border-interface: 1px solid darken($c-input, 10%);
+$border-interface-active: 1px solid darken($c-input, 50%);
+$outline-swatch: 1px solid rgba(0, 0, 0, 12.5%);
+$outline-swatch-chip: 1px solid rgba(0, 0, 0, 25%);
+
+// Box Shadows
+$shadow-swatch: 0 px(2) px(8) rgba(0, 0, 0, 12.5%);
+$shadow-paste-area: inset 0 0 2rem darken($c-input, 2.5%);
+$shadow-paste-area-active: 0 1rem 2rem -1rem darken($c-input, 5%);
+$shadow-window-buttons: px(20) 0 $c-controls, px(40) 0 $c-controls;
+$shadow-window-buttons-active: px(20) 0 $c-controls-active, px(40) 0 $c-controls-active;

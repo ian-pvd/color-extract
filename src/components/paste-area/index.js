@@ -23,13 +23,15 @@ class PasteArea extends React.Component {
   render() {
     return(
       <div className="paste-area">
-        <textarea
-          id="paste-area-textarea"
-          name="paste-area-textarea"
-          className="paste-area__textarea"
-          onChange={this.handleChange}
-        ></textarea>
-        <label className="paste-area__label" htmlFor="paste-area">Paste your text into here to extract colors.</label>
+        <div className="paste-area__wrapper">
+          <textarea
+            id="paste-area-textarea"
+            name="paste-area-textarea"
+            className="paste-area__textarea"
+            onChange={this.handleChange}
+          ></textarea>
+          <label className="paste-area__label" htmlFor="paste-area">Paste your text here to extract colors.</label>
+        </div>
       </div>
     );
   }

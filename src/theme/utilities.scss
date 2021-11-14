@@ -1,0 +1,7 @@
+/**
+ * Theme SCSS Utilities
+ */
+
+@function px($px, $base: 16) {
+	@return #{$px / $base}rem;
+}
