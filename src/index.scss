@@ -10,11 +10,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@400;700&subset=latin,latin-ext&display=swap');
 
 body {
-	background-color: hsl(0, 0, 97.5%);
+	background-color: $c-background;
 	box-sizing: border-box;
 	font-family: 'Ubuntu', sans-serif;
 	line-height: $line-height;
 	margin: 0;
+	color: $c-text;
 }
 
 *,
@@ -30,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: $c-heading;
+	color: $c-header;
 	margin: 0 0 $spacer-sm;
 }
 

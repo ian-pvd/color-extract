@@ -1,0 +1,20 @@
+/**
+ * Header
+ *
+ * Site header styles.
+ */
+
+@import '../../theme/index.scss';
+
+.header {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto $spacer-lg;
+	padding: $spacer-lg $spacer 0;
+}
+
+.header__title {
+	letter-spacing: calc(75em / 1000);
+	margin: 0 auto;
+	text-transform: uppercase;
+}

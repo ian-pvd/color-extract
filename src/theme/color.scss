@@ -3,13 +3,19 @@
  */
 
 // Named color variables.
-$color-regent-gray: #8894A5;
+$color-ghost: desaturate(#c4cad2, 100%);
+$color-mine-shaft: #2b2b2b;
+$color-outer-space: desaturate(#34383b, 100%);
+$color-regent-gray: desaturate(#8894a5, 100%);
 $color-scorpion: #595959;
-$color-mine-shaft: #2B2B2B;
-$color-white: #FFFFFF;
+$color-shark: desaturate(#26272a, 100%);
+$color-white: #ffffff;
+$shark-dark: desaturate(#1d1e20, 100%);
+$shark: desaturate(#2e2f33, 100%);
 
 // Context specific variables.
-$c-heading: $color-scorpion;
-$c-prompt: $color-regent-gray;
-$c-branding: $color-mine-shaft;
-$c-field-bg: $color-white;
+$c-background: $color-outer-space;
+$c-header: $color-ghost;
+$c-input-placeholder: transparentize($color-ghost, 0.5);
+$c-input: $shark-dark;
+$c-text: $color-white;

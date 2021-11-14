@@ -24,8 +24,8 @@ class PasteArea extends React.Component {
     return(
       <div className="paste-area">
         <textarea
-          id="paste-area"
-          name="paste-area"
+          id="paste-area-textarea"
+          name="paste-area-textarea"
           className="paste-area__textarea"
           onChange={this.handleChange}
         ></textarea>
