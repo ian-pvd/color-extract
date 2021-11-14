@@ -1,0 +1,47 @@
+/**
+ * Paste Area
+ *
+ * The textarea for pasting the mixed CSS input text.
+ */
+
+@import '../../theme/index.scss';
+
+.paste-area {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.paste-area__textarea {
+    display: block;
+    flex-grow: 1;
+    height: 4rem;
+    margin: 0 auto $spacer-sm;
+    padding: $spacer-xs $spacer-sm;
+    resize: vertical;
+    width: 100%;
+    z-index: 1;
+    background-color: transparent;
+
+    &:focus {
+        background-color: $c-field-bg;
+    }
+}
+
+.paste-area__label {
+    align-items: center;
+    bottom: 0;
+    color: #8894A5;
+    display: flex;
+    font-size: 1.75rem;
+    font-weight: 700;
+    justify-content: center;
+    left: 0;
+    margin: 0 auto $spacer-sm;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}

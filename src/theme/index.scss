@@ -1,0 +1,13 @@
+/**
+ * Color Extract Theme
+ *
+ * Common font, color & spacing variables.
+ */
+
+@import './color.scss';
+@import './layout.scss';
+@import './typography.scss';
+
+:root {
+    --swatch-color: hsla(0deg, 0%, 100%, 0.5);
+}

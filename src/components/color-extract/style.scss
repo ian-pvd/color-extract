@@ -1,0 +1,19 @@
+/**
+ * Color Extract
+ *
+ * The primary app area, with columns for pasting and viewing colors.
+ */
+
+@import '../../theme/index.scss';
+
+.color-extract {
+    margin: 0 auto $spacer;
+}
+
+.color-extract__paste {
+    margin: 0 0 $spacer;
+}
+
+.color-extract__results {
+    margin: 0;
+}

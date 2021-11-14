@@ -1,0 +1,10 @@
+@import './theme/index.scss';
+
+.app {
+	background-color: transparent;
+	margin: 0 auto $spacer-lg;
+	max-width: $width-content;
+	min-height: calc(100vh - #{$spacer-lg});
+	width: 100%;
+	padding: 0 $spacer;
+}

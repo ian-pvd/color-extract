@@ -1,0 +1,15 @@
+/**
+ * Theme color variables.
+ */
+
+// Named color variables.
+$color-regent-gray: #8894A5;
+$color-scorpion: #595959;
+$color-mine-shaft: #2B2B2B;
+$color-white: #FFFFFF;
+
+// Context specific variables.
+$c-heading: $color-scorpion;
+$c-prompt: $color-regent-gray;
+$c-branding: $color-mine-shaft;
+$c-field-bg: $color-white;
