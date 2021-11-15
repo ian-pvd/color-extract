@@ -27,3 +27,10 @@
 		margin-right: 0;
 	}
 }
+
+.results-area__info,
+.results-area__prompt {
+	@include cta-prompt();
+	font-size: 1.25rem;
+	text-align: center;
+}

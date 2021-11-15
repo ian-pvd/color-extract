@@ -2,6 +2,14 @@
  * Theme SCSS Utilities
  */
 
+/* Functions */
 @function px($px, $base: 16) {
 	@return #{$px / $base}rem;
+}
+
+/* Mixins */
+@mixin cta-prompt() {
+    color: $color-ui;
+    font-size: 1.75rem;
+    font-weight: 700;
 }

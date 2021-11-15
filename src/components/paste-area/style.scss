@@ -93,9 +93,7 @@
 }
 
 .paste-area__label {
-	color: $color-ui;
-	font-size: 1.75rem;
-	font-weight: 700;
+	@include cta-prompt();
 	height: 100%;
 	left: 0;
 	padding: $spacer-lg;

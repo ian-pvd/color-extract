@@ -17,7 +17,7 @@ class ColorExtract extends React.Component {
           <PasteArea extractColors={this.props.extractColors} classStatus={this.props.classStatus}/>
         </div>
         <div className="color-extract__results">
-          <ResultsArea colorsList={this.props.colorsList} namedColors={this.props.namedColors} />
+          <ResultsArea colorsList={this.props.colorsList} namedColors={this.props.namedColors} hasInput={this.props.hasInput}/>
         </div>
       </div>
     );

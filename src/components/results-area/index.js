@@ -14,16 +14,20 @@ class ResultsArea extends React.Component {
   render() {
     return(
       <div className="results-area">
-        {(0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) ?
+        {console.log(this.props.hasInput)}
+        {(this.props.hasInput) ?
           <>
-            <div className="results-area__info">
-              {pluralize('unique color', this.props.colorsList.length, true)} found with {pluralize('color name variables', Object.keys(this.props.namedColors).length, true)}
-            </div>
-            <NamedColors namedColors={this.props.namedColors} />
-            <ColorSwatches colorsList={this.props.colorsList} />
+            <p className="results-area__info">
+              {pluralize('unique color', this.props.colorsList.length, true)} found, with {pluralize('color names', Object.keys(this.props.namedColors).length, true)}
+            </p>
+            {/* TODO: Clean up this dual && && conditional markup. */
+              (0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) &&
+              <NamedColors namedColors={this.props.namedColors} /> &&
+              <ColorSwatches colorsList={this.props.colorsList} />
+            }
           </>
         :
-          <p>Paste something to see a result.</p>
+          <p className="results-area__prompt">Paste your text in the input area to see your results here.</p>
         }
       </div>
     );

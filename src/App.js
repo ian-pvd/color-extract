@@ -17,9 +17,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      classStatus: 'inactive',
       colorsList: [],
       namedColors: {},
-      classStatus: 'inactive',
+      hasInput: false,
     }
   }
 
@@ -28,17 +29,19 @@ class App extends React.Component {
       const colorsList = findColors(input);
       this.setState(
         {
+          classStatus: 'active',
           colorsList: colorsList,
           namedColors: getNamedColors(colorsList),
-          classStatus: 'active',
+          hasInput: true,
         }
       );
     } else {
       this.setState(
         {
+          classStatus: 'inactive',
           colorsList: [],
           namedColors: {},
-          classStatus: 'inactive',
+          hasInput: false,
         }
       );
     }
@@ -49,10 +52,11 @@ class App extends React.Component {
       <div className="app">
         <Header />
         <ColorExtract
-          extractColors={this.extractColors}
-          colorsList={this.state.colorsList}
-          namedColors={this.state.namedColors}
           classStatus={this.state.classStatus}
+          colorsList={this.state.colorsList}
+          extractColors={this.extractColors}
+          hasInput={this.state.hasInput}
+          namedColors={this.state.namedColors}
         />
         <p>Colophon</p>
         <p>Credits & Copyright</p>
