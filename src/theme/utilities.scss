@@ -9,25 +9,25 @@
 
 /* Mixins */
 @mixin cta-prompt() {
-    color: $color-ui;
-    font-size: 1.75rem;
-    font-weight: 700;
+	color: $color-ui;
+	font-size: 1.75rem;
+	font-weight: 700;
 }
 
 @mixin screen-reader-text() {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal !important;
+	border: none;
+	clip: rect(px(1), px(1), px(1), px(1));
+	clip-path: inset(50%);
+	height: px(1);
+	margin: px(-1);
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: px(1);
+	word-wrap: normal !important;
 }
 
 @mixin section-heading() {
-    letter-spacing: $letter-spacing;
-    text-align: center;
+	letter-spacing: $letter-spacing;
+	text-align: center;
 }

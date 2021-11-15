@@ -8,7 +8,7 @@
   ],
   "customSyntax": "postcss-scss",
   "rules": {
-    "at-rule-no-unknown": [true, {"ignoreAtRules": ["function","return"]}],
+    "at-rule-no-unknown": [true, {"ignoreAtRules": ["function","return","mixin","include"]}],
     "block-no-empty": [true, {"severity": "warning"}],
     "color-function-notation": "legacy",
     "color-hex-case": ["lower"],

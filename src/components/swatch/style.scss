@@ -17,7 +17,6 @@
 	outline: $border-ui-active;
 	padding: $spacer-sm;
 	position: relative;
-	color: $color-ui-active;
 
 	&:focus-within {
 		box-shadow: $shadow-ui-focus;
@@ -72,8 +71,8 @@
 
 .swatch__list-item {
 	display: flex;
-	width: 100%;
 	margin: 0 0 $spacer-xs;
+	width: 100%;
 
 	&:last-child {
 		margin: 0;
