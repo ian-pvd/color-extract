@@ -7,23 +7,23 @@
 @import '../../theme/index.scss';
 
 .paste-area {
-	background-color: $c-input;
-	border: $border-interface;
+	background-color: $bg-ui;
+	border: $border-ui;
 	border-radius: px(6);
-	box-shadow: $shadow-paste-area;
+	box-shadow: $shadow-ui;
 	margin: 0;
 	overflow: hidden;
 	padding: 3rem 0 0;
 	position: relative;
 
 	&::before {
-		background: $c-controls;
+		background-color: transparent;
 		border-radius: 50%;
-		box-shadow: $shadow-window-buttons;
+		box-shadow: $shadow-buttons;
 		content: '';
 		display: block;
 		height: px(12);
-		left: px(13);
+		left: 0;
 		position: absolute;
 		top: 1rem;
 		width: px(12);
@@ -31,12 +31,11 @@
 	}
 
 	&:focus-within {
-		border: $border-interface-active;
-		box-shadow: $shadow-paste-area-active;
+		border: $border-ui-focus;
+		box-shadow: $shadow-ui-focus;
 
 		&::before {
-			background-color: $c-controls-active;
-			box-shadow: $shadow-window-buttons-active;
+			box-shadow: $shadow-buttons-focus;
 		}
 	}
 }
@@ -54,7 +53,7 @@
 .paste-area__textarea {
 	background-color: transparent;
 	border: none;
-	color: $c-input-placeholder;
+	color: $color-ui-active;
 	display: block;
 	flex-grow: 1;
 	height: 100%;
@@ -63,14 +62,15 @@
 	padding: $spacer;
 	resize: vertical;
 	width: 100%;
+	z-index: 1;
 
 	&:focus {
-		color: $c-text;
+		color: $color-ui-focus;
 	}
 }
 
 .paste-area__label {
-	color: $c-input-placeholder;
+	color: $color-ui;
 	font-size: 1.75rem;
 	font-weight: 700;
 	height: 100%;
