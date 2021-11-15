@@ -12,9 +12,9 @@ import './style.scss';
 class ColorExtract extends React.Component {
   render() {
     return(
-      <div className="color-extract">
+      <div className={`color-extract color-extract--${this.props.classStatus}`}>
         <div className="color-extract__paste">
-          <PasteArea extractColors={this.props.extractColors} />
+          <PasteArea extractColors={this.props.extractColors} classStatus={this.props.classStatus}/>
         </div>
         <div className="color-extract__results">
           <ResultsArea colorsList={this.props.colorsList} namedColors={this.props.namedColors} />

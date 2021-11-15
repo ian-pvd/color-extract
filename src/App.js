@@ -19,19 +19,41 @@ class App extends React.Component {
     this.state = {
       colorsList: [],
       namedColors: {},
+      classStatus: 'inactive',
     }
   }
 
   extractColors = (input) => {
-    const colorsList = findColors(input);
-    this.setState({ colorsList: colorsList, namedColors: getNamedColors(colorsList) });
+    if ('' !== input.trim()) {
+      const colorsList = findColors(input);
+      this.setState(
+        {
+          colorsList: colorsList,
+          namedColors: getNamedColors(colorsList),
+          classStatus: 'active',
+        }
+      );
+    } else {
+      this.setState(
+        {
+          colorsList: [],
+          namedColors: {},
+          classStatus: 'inactive',
+        }
+      );
+    }
   };
 
   render() {
     return (
       <div className="app">
         <Header />
-        <ColorExtract extractColors={this.extractColors} colorsList={this.state.colorsList} namedColors={this.state.namedColors} />
+        <ColorExtract
+          extractColors={this.extractColors}
+          colorsList={this.state.colorsList}
+          namedColors={this.state.namedColors}
+          classStatus={this.state.classStatus}
+        />
         <p>Colophon</p>
         <p>Credits & Copyright</p>
       </div>

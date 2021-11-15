@@ -15,23 +15,26 @@ class PasteArea extends React.Component {
    * Process the textarea value on input.
    */
   handleChange = (e) => {
-      e.preventDefault();
-      const input = e.target.value;
-      this.props.extractColors(input);
+    e.preventDefault();
+    const input = e.target.value;
+    this.props.extractColors(input);
   };
 
   render() {
     return(
-      <div className="paste-area">
+      <div className={`paste-area paste-area--${this.props.classStatus}`}>
+        <header className="paste-area__header">input.css</header>
         <div className="paste-area__wrapper">
           <textarea
+            className="paste-area__textarea"
             id="paste-area-textarea"
             name="paste-area-textarea"
-            className="paste-area__textarea"
-            spellcheck="false"
             onChange={this.handleChange}
+            spellCheck="false"
           ></textarea>
-          <label className="paste-area__label" htmlFor="paste-area">Paste your text here to extract colors.</label>
+          <label className="paste-area__label" htmlFor="paste-area">
+            Paste your text here to extract colors.
+          </label>
         </div>
       </div>
     );
