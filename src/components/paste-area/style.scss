@@ -50,17 +50,24 @@
 	box-shadow: $shadow-header;
 	color: $color-ui-active;
 	display: flex;
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: $font-size-mono;
 	height: 3rem;
 	justify-content: center;
-	line-height: 1rem;
 	position: relative;
 	z-index: 1;
 
 	.paste-area:focus-within & {
 		color: $color-ui-focus;
 	}
+}
+
+.paste-area__heading {
+	@include screen-reader-text();
+}
+
+.paste-area__window-title {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: $font-size-mono;
+	line-height: 1rem;
 }
 
 .paste-area__wrapper {
@@ -94,8 +101,12 @@
 
 .paste-area__label {
 	@include cta-prompt();
+	align-items: center;
+	display: flex;
 	height: 100%;
+	justify-content: center;
 	left: 0;
+	line-height: 1;
 	padding: $spacer-lg;
 	pointer-events: none;
 	position: absolute;

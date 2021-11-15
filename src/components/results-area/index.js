@@ -14,16 +14,17 @@ class ResultsArea extends React.Component {
   render() {
     return(
       <div className="results-area">
-        {console.log(this.props.hasInput)}
         {(this.props.hasInput) ?
           <>
             <p className="results-area__info">
               {pluralize('unique color', this.props.colorsList.length, true)} found, with {pluralize('color names', Object.keys(this.props.namedColors).length, true)}
             </p>
-            {/* TODO: Clean up this dual && && conditional markup. */
+            {
               (0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) &&
-              <NamedColors namedColors={this.props.namedColors} /> &&
-              <ColorSwatches colorsList={this.props.colorsList} />
+              <>
+                <NamedColors namedColors={this.props.namedColors} />
+                <ColorSwatches colorsList={this.props.colorsList} />
+               </>
             }
           </>
         :

@@ -10,12 +10,19 @@
 	background-color: $bg-ui;
 	border-radius: px(2);
 	box-shadow: $shadow-ui-active;
+	color: $color-ui-active;
 	display: flex;
+	flex-direction: column;
 	margin: 0;
 	outline: $border-ui-active;
 	padding: $spacer-sm;
 	position: relative;
-	flex-direction: column;
+	color: $color-ui-active;
+
+	&:focus-within {
+		box-shadow: $shadow-ui-focus;
+		color: $color-ui-focus;
+	}
 }
 
 .swatch__chip,
@@ -47,9 +54,10 @@
 }
 
 .swatch__name {
+	color: inherit;
+	letter-spacing: $letter-spacing-lg;
 	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 0.025em;
 }
 
 .swatch__data {
@@ -64,6 +72,12 @@
 
 .swatch__list-item {
 	display: flex;
+	width: 100%;
+	margin: 0 0 $spacer-xs;
+
+	&:last-child {
+		margin: 0;
+	}
 }
 
 .swatch__label {
@@ -73,6 +87,5 @@
 }
 
 .swatch__value {
-	min-width: 0;
-	width: calc(100% / 2);
+	width: 100%;
 }

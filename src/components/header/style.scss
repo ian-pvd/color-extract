@@ -8,6 +8,7 @@
 
 .header {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto $spacer-lg;
 	padding: $spacer-lg $spacer 0;
@@ -15,7 +16,11 @@
 
 .header__title {
 	color: $color-branding;
-	letter-spacing: calc(75em / 1000);
+	letter-spacing: $letter-spacing-xl;
 	margin: 0 auto;
 	text-transform: uppercase;
+}
+
+.header__description {
+	@include screen-reader-text();
 }

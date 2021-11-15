@@ -35,9 +35,17 @@ h6 {
 	margin: 0 0 $spacer-sm;
 }
 
+[type="text"],
 textarea {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: $font-size-mono;
-	letter-spacing: calc(1em / 100);
+	letter-spacing: $letter-spacing;
+}
+
+[type="text"] {
+	line-height: 1;
+}
+
+textarea {
 	line-height: $line-height-sm;
 }
