@@ -1,12 +1,12 @@
 /**
- * Paste Area
+ * Text Window
  *
  * The textarea for pasting the mixed CSS input text.
  */
 
 @import '../../theme/index.scss';
 
-.paste-area {
+.text-window {
 	background-color: $bg-ui;
 	border: $border-ui;
 	border-radius: px(6);
@@ -27,6 +27,7 @@
 		position: absolute;
 		top: 1rem;
 		width: px(12);
+		word-wrap: break-word;
 		z-index: 10;
 	}
 
@@ -39,13 +40,13 @@
 		}
 	}
 
-	&.paste-area--active {
+	&.text-window--active {
 		border: $border-ui-active;
 		box-shadow: $shadow-ui-active;
 	}
 }
 
-.paste-area__header {
+.text-window__header {
 	align-items: center;
 	box-shadow: $shadow-header;
 	color: $color-ui-active;
@@ -55,22 +56,22 @@
 	position: relative;
 	z-index: 1;
 
-	.paste-area:focus-within & {
+	.text-window:focus-within & {
 		color: $color-ui-focus;
 	}
 }
 
-.paste-area__heading {
+.text-window__heading {
 	@include screen-reader-text();
 }
 
-.paste-area__window-title {
+.text-window__window-title {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: $font-size-mono;
 	line-height: 1rem;
 }
 
-.paste-area__wrapper {
+.text-window__wrapper {
 	display: flex;
 	flex-direction: column;
 	height: auto;
@@ -78,9 +79,17 @@
 	min-height: 12rem;
 	position: relative;
 	width: 100%;
+
+	.text-window--paste-area & {
+		min-height: 8rem;
+	}
+
+	.text-window--css-colors & {
+		min-height: 16rem;
+	}
 }
 
-.paste-area__textarea {
+.text-window__textarea {
 	background-color: transparent;
 	border: none;
 	color: $color-ui-active;
@@ -99,7 +108,7 @@
 	}
 }
 
-.paste-area__label {
+.text-window__label {
 	@include cta-prompt();
 	align-items: center;
 	display: flex;
@@ -114,8 +123,8 @@
 	top: 0;
 	width: 100%;
 
-	.paste-area--active &,
-	.paste-area:focus-within & {
+	.text-window--active &,
+	.text-window:focus-within & {
 		display: none;
 	}
 }
