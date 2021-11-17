@@ -10,6 +10,11 @@
 	display: block;
 }
 
+.color-swatches__heading {
+	@include section-heading();
+	margin-bottom: $spacer;
+}
+
 .color-swatches__list {
 	display: flex;
 	flex-wrap: wrap;

@@ -5,8 +5,9 @@
  */
 
 import React from 'react';
+import pluralize from 'pluralize';
 import TextWindow from '../text-window';
-import ResultsArea from '../results-area';
+import ColorSwatches from '../color-swatches';
 import './style.scss';
 
 class ColorExtract extends React.Component {
@@ -22,9 +23,16 @@ class ColorExtract extends React.Component {
     this.props.extractColors(input);
   };
 
+  getCssText = () => {
+    if (this.props.hasInput) {
+        return `/* ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('color names', Object.keys(this.props.namedColors).length, true)} */\n\n:root {\n${Object.keys(this.props.namedColors).map((name) => `\t--color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
+    }
+    return '/* Paste your text in the input area to see the color variables here. */';
+  }
+
   render() {
 
-    const textOptions = {
+    const inputTextOptions = {
       // Class modifier
       slug: 'paste-area',
       // Heading Text
@@ -48,18 +56,40 @@ class ColorExtract extends React.Component {
       }
     };
 
+    const resultsTextOptions = {
+      // Class modifier
+      slug: 'css-colors',
+      // Heading Text
+      headingText: 'Named CSS Color Variables',
+      // Label
+      formLabel: false,
+      // Status
+      status: this.props.classStatus,
+      // Window Title
+      windowTitle: 'colors.css',
+      // Value
+      textValue: this.getCssText(),
+      // Attribute Options
+      attributes: {
+        // Read-only?
+        readOnly: true,
+        // Spell Check?
+        spellCheck: false,
+        // Change Handler
+        onChange: () => {}
+      }
+    };
+
     return(
       <div className={`color-extract color-extract--${this.props.classStatus}`}>
         <div className="color-extract__paste">
-          <TextWindow textOptions={textOptions}/>
+          <TextWindow textOptions={inputTextOptions}/>
         </div>
         <div className="color-extract__results">
-          <ResultsArea
-            colorsList={this.props.colorsList}
-            namedColors={this.props.namedColors}
-            hasInput={this.props.hasInput}
-            classStatus={this.props.classStatus}
-          />
+          <TextWindow textOptions={resultsTextOptions}/>
+          {(this.props.hasInput && 0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) &&
+            <ColorSwatches colorsList={this.props.colorsList} />
+          }
         </div>
       </div>
     );

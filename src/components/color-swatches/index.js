@@ -12,7 +12,7 @@ class ColorSwatches extends React.Component {
   render() {
     return(
       <div className="color-swatches">
-        <h2>Color Swatches</h2>
+        <h2 className="color-swatches__heading">Color Swatches</h2>
         <ul className="color-swatches__list">
         {this.props.colorsList.map((colorKey) => {
           return(

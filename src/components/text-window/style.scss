@@ -44,6 +44,10 @@
 		border: $border-ui-active;
 		box-shadow: $shadow-ui-active;
 	}
+
+	&.text-window--css-colors {
+		margin-bottom: $spacer;
+	}
 }
 
 .text-window__header {
