@@ -198,6 +198,12 @@
 		width: 100%;
 	}
 
+	&:focus {
+		// don't animate position on focus, causes layout issues.
+		transition: none;
+	}
+
+	&:focus,
 	.swatch__list-item:hover & {
 		opacity: 1;
 		right: 0;
