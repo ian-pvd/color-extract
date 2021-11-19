@@ -33,8 +33,8 @@ h4,
 h5,
 h6 {
 	color: $color-header;
-	margin: 0 0 $spacer-sm;
 	font-family: 'Poppins', sans-serif;
+	margin: 0 0 $spacer-sm;
 }
 
 [type='text'],
@@ -44,11 +44,11 @@ textarea {
 }
 
 [type='text'] {
-	line-height: 1;
 	letter-spacing: $letter-spacing;
+	line-height: 1;
 }
 
 textarea {
-	line-height: $line-height-sm;
 	letter-spacing: $letter-spacing-textarea;
+	line-height: $line-height-sm;
 }
