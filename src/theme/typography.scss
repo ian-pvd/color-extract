@@ -20,3 +20,4 @@ $line-height-xl: calc(5 / 3);
 $letter-spacing: calc(10em / 1000);
 $letter-spacing-lg: calc(25em / 1000);
 $letter-spacing-xl: calc(75em / 1000);
+$letter-spacing-textarea: 0.25px; // Anything smaller than this breaks line wrapping?

@@ -27,18 +27,18 @@
 	margin: 0 $spacer $spacer 0;
 	padding: 0;
 
-	/* Breakpoint Tablet
+	/* Breakpoint Tablet  */
 	width: calc((100% - (#{$spacer})) / 2);
 
 	&:nth-child(2n) {
 		margin-right: 0;
-	} */
+	}
 
-	/* Breakpoint Large */
+	/* Breakpoint Large
 	margin: 0 $spacer $spacer 0;
 	width: calc((100% - (#{$spacer} * 2)) / 3);
 
 	&:nth-child(3n) {
 		margin-right: 0;
-	}
+	} */
 }

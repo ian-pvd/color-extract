@@ -8,7 +8,7 @@
 
 .swatch {
 	background-color: $bg-ui;
-	border-radius: px(2);
+	border-radius: 6px;
 	box-shadow: $shadow-ui-active;
 	color: $color-ui-active;
 	display: flex;
@@ -89,7 +89,6 @@
 	width: 100%;
 }
 
-
 /* WIP hover to show hex code */
 .swatch__chip {
     cursor: copy;
@@ -98,10 +97,13 @@
 		color: var(--swatch-color);
 		content: attr(data-color);
 		display: block;
-		font-size: 48px;
-		font-weight: 800;
+		font-family: 'Ubuntu Mono', monospace;
+		font-size: clamp(4rem, 8vw, 6rem);
+		font-variant-numeric: tabular-nums;
+		font-weight: 700;
 		left: 50%;
-		letter-spacing: $letter-spacing;
+		letter-spacing: $letter-spacing-lg;
+		line-height: 1;
 		opacity: 0;
 		position: absolute;
 		text-shadow: -2px -2px 0 #fff6, 2px 2px 0 #0006;
@@ -118,5 +120,86 @@
 
 	&:active::after {
 	    text-shadow: -2px -2px 0 #0006, 2px 2px 0 #fff6;
+	}
+}
+
+/* WIP Swatch Color Fields */
+.swatch__list-item {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+
+	&:focus-within {
+	    border-radius: 4px;
+	    outline: 1px solid whitesmoke;
+	}
+}
+
+.swatch__label {
+    align-items: center;
+    background: linear-gradient(90deg, transparent, #2c2c2c 25%, #2c2c2c);
+    color: #101010;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    padding: 4px 12px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    transition: right 125ms ease-in, opacity 300ms ease-in;
+    width: 6rem;
+
+    .swatch__list-item:hover & {
+	    opacity: 0;
+	    right: -6rem;
+	}
+
+	.swatch__list-item:focus-within & {
+		opacity: 0;
+	}
+}
+
+.swatch__value {
+    appearance: none;
+    background-color: #2C2C2C;
+    border: none;
+    color: whitesmoke;
+    outline: none;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.swatch__copy-button {
+    background: #2c2c2c;
+    border: none;
+    border-left: 1px solid #1f1f1f;
+    color: grey;
+    cursor: copy;
+    height: 2rem;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: -2rem;
+    text-indent: calc(100% + 1rem);
+    transition: right 125ms ease-in, opacity 300ms ease-in;
+    white-space: nowrap;
+    width: 2rem;
+
+    svg {
+    	content: "";
+    	display: block;
+    	fill: grey;
+    	height: 100%;
+    	left: 0;
+    	padding: 6px;
+    	position: absolute;
+    	top: 0;
+    	transform: scaleX(-1);
+    	width: 100%;
+    }
+
+    .swatch__list-item:hover & {
+	    opacity: 1;
+	    right: 0;
 	}
 }

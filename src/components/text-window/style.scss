@@ -105,6 +105,7 @@
 	padding: $spacer;
 	resize: vertical;
 	width: 100%;
+	word-break: break-word;
 	z-index: 0;
 
 	&:focus {
