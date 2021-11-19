@@ -20,7 +20,7 @@ class Swatch extends React.Component {
 
     return(
       <div className="swatch" style={colorStyle}>
-        <span className="swatch__chip"></span>
+        <span className="swatch__chip" data-color={hexColor}></span>
         <div className="swatch__data">
           <h3 className="swatch__name">
             {ntc(hexColor).colorName}
