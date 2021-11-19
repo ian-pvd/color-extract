@@ -14,6 +14,7 @@ import { findColors, getNamedColors } from './utilities/color.js';
 import './app.scss';
 
 class App extends React.Component {
+
   constructor() {
     super();
     this.state = {

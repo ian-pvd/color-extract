@@ -40,11 +40,16 @@ export const findColors = (input) => {
  * @return {object}            A list of unique colors.
  */
 export const dedupeColors = (colorsList) => {
+  // For each color in the list...
   colorsList.forEach((color, i) => {
+    // If color code is 3 digits, expand to six.
     if (color.match(/^#[0-9A-F]{3}$/i)) {
-      colorsList[i] = `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`;
+      colorsList[i] = `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`.toLowerCase();
     }
+    // Convert all values to lowercase.
+    colorsList[i] = colorsList[i].toLowerCase();
   });
+  // Return a Set object of unique values.
   return [...new Set(colorsList)];
 };
 
@@ -74,16 +79,22 @@ export const getNamedColors = (colorsList) => {
 
   // Create an empty array to store the unique color names.
   const namedColors = {};
+  // console.log(colorNames);
   // Iterate through each slug in the named colors array.
   Object.keys(colorNames).forEach( (name) => {
+    // console.log(colorNames[name]);;
     // If the array of nested hex colors contains one item...
-    if (1 === name.length) {
-        // Move that item to the named colors array.
-        namedColors[name] = colorNames[name][0];
-      } else {
-        // Else, average the array of hex values store the result as a string.
-        namedColors[name] = averageColor(colorNames[name]);
-      }
+    if (1 === colorNames[name].length) {
+      // console.log('equals 1');
+      // Move that item to the named colors array.
+      namedColors[name] = colorNames[name][0];
+    } else {
+      // console.log('not equals 1');
+      // Else, average the array of hex values store the result as a string.
+      console.log(averageColor(colorNames[name]));
+      namedColors[name] = averageColor(colorNames[name]);
+    }
+    // console.log(namedColors);
   });
 
   // Return the processed list of named colors.
