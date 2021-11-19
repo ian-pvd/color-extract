@@ -2,7 +2,6 @@
  * Color Utilities
  */
 
-import averageColor from '@bencevans/color-array-average';
 import ntc from '@yatiac/name-that-color';
 import slugify from 'slugify';
 
@@ -40,11 +39,16 @@ export const findColors = (input) => {
  * @return {object}            A list of unique colors.
  */
 export const dedupeColors = (colorsList) => {
+  // For each color in the list...
   colorsList.forEach((color, i) => {
+    // If color code is 3 digits, expand to six.
     if (color.match(/^#[0-9A-F]{3}$/i)) {
       colorsList[i] = `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`;
     }
+    // Convert all values to lowercase.
+    colorsList[i] = colorsList[i].toLowerCase();
   });
+  // Return a Set object of unique values.
   return [...new Set(colorsList)];
 };
 
@@ -76,14 +80,14 @@ export const getNamedColors = (colorsList) => {
   const namedColors = {};
   // Iterate through each slug in the named colors array.
   Object.keys(colorNames).forEach( (name) => {
-    // If the array of nested hex colors contains one item...
-    if (1 === name.length) {
-        // Move that item to the named colors array.
-        namedColors[name] = colorNames[name][0];
-      } else {
-        // Else, average the array of hex values store the result as a string.
-        namedColors[name] = averageColor(colorNames[name]);
-      }
+    // If the nested array of hex colors contains one item...
+    if (1 === colorNames[name].length) {
+      // Move that item to the named colors array.
+      namedColors[name] = colorNames[name][0];
+    } else {
+      // Else, average the array of hex values store the result as a string.
+      namedColors[name] = averageColor(colorNames[name]);
+    }
   });
 
   // Return the processed list of named colors.
@@ -125,3 +129,34 @@ export const cmykString = (color) => {
   // Format each item in the array and return it as a string.
   return cmyk.map((value, i) => {return `${cmykLabels[i]} ${value}%`}).join(', ');
 }
+
+/**
+ * Color Average
+ *
+ * Averages an array of hex values into a single hex string.
+ * Patched fork of @bencevans/color-array-average v1.0.1
+ *
+ * @see https://www.npmjs.com/package/@bencevans/color-array-average
+ *
+ * @param  {array} colors Input array of colors.
+ * @return {string}       Average color.
+ */
+export const averageColor = ( colors ) => {
+  const [totalR, totalG, totalB] = colors.reduce((prev, curr) => {
+    curr = curr.substring(1);
+
+    for (let index = 0; index < 3; index++) {
+      let col = curr.substr(index * (curr.length / 3), (curr.length / 3));
+      col = col.length === 1 ? col + col : col;
+      col = parseInt(col, 16);
+      prev[index] += (col / colors.length);
+    }
+
+    return prev;
+  }, [0, 0, 0]);
+
+  return '#' +
+    Math.round(totalR).toString(16).padStart(2, '0') +
+    Math.round(totalG).toString(16).padStart(2, '0') +
+    Math.round(totalB).toString(16).padStart(2, '0');
+};
