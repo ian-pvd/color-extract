@@ -2,7 +2,6 @@
  * Color Utilities
  */
 
-import averageColor from '@bencevans/color-array-average';
 import ntc from '@yatiac/name-that-color';
 import slugify from 'slugify';
 
@@ -136,3 +135,34 @@ export const cmykString = (color) => {
   // Format each item in the array and return it as a string.
   return cmyk.map((value, i) => {return `${cmykLabels[i]} ${value}%`}).join(', ');
 }
+
+/**
+ * Color Average
+ *
+ * Averages an array of hex values into a single hex string.
+ * Patched fork of @bencevans/color-array-average v1.0.1
+ *
+ * @see https://www.npmjs.com/package/@bencevans/color-array-average
+ *
+ * @param  {array} colors Input array of colors.
+ * @return {string}       Average color.
+ */
+export const averageColor = ( colors ) => {
+  const [totalR, totalG, totalB] = colors.reduce((prev, curr) => {
+    curr = curr.substring(1);
+
+    for (let index = 0; index < 3; index++) {
+      let col = curr.substr(index * (curr.length / 3), (curr.length / 3));
+      col = col.length === 1 ? col + col : col;
+      col = parseInt(col, 16);
+      prev[index] += (col / colors.length);
+    }
+
+    return prev;
+  }, [0, 0, 0]);
+
+  return '#' +
+    Math.round(totalR).toString(16).padStart(2, '0') +
+    Math.round(totalG).toString(16).padStart(2, '0') +
+    Math.round(totalB).toString(16).padStart(2, '0');
+};

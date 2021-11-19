@@ -25,6 +25,13 @@ class App extends React.Component {
     }
   }
 
+  /**
+   * Extract Colors
+   *
+   * Find colors in the input and add them to state.
+   *
+   * @param  {string} input Input from the paste area.
+   */
   extractColors = (input) => {
     if ('' !== input.trim()) {
       const colorsList = findColors(input);
