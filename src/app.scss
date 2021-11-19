@@ -2,11 +2,14 @@
 
 .app {
 	background-color: transparent;
-	margin: 0 auto $spacer-lg;
-	max-width: $width-content;
 	min-height: calc(100vh - #{$spacer-lg});
-	padding: 0 $spacer;
-	width: 100%;
+
+	main {
+		margin: 0 auto $spacer-lg;
+		max-width: $width-content;
+		padding: 0 $spacer;
+		width: 100%;
+	}
 }
 
 // TODO: Move to Section Partials.

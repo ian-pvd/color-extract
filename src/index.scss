@@ -33,8 +33,16 @@ h4,
 h5,
 h6 {
 	color: $color-header;
-	font-family: 'Poppins', sans-serif;
 	margin: 0 0 $spacer-sm;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Poppins', sans-serif;
 }
 
 [type='text'],

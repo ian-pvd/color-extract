@@ -7,11 +7,12 @@
 @import '../../theme/index.scss';
 
 .header {
+	background-color: $bg-ui;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto $spacer-lg;
-	padding: $spacer-lg $spacer 0;
+	padding: $spacer;
 }
 
 .header__title {
