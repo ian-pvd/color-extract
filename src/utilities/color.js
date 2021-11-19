@@ -80,13 +80,12 @@ export const getNamedColors = (colorsList) => {
   const namedColors = {};
   // Iterate through each slug in the named colors array.
   Object.keys(colorNames).forEach( (name) => {
-    // If the array of nested hex colors contains one item...
+    // If the nested array of hex colors contains one item...
     if (1 === colorNames[name].length) {
       // Move that item to the named colors array.
       namedColors[name] = colorNames[name][0];
     } else {
       // Else, average the array of hex values store the result as a string.
-      console.log(averageColor(colorNames[name]));
       namedColors[name] = averageColor(colorNames[name]);
     }
   });
