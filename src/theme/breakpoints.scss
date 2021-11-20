@@ -3,10 +3,14 @@
  */
 
 // Breakpoint Variables.
-$bp-small: 448px;
-$bp-med: 768px;
-$bp-lrg: 1024px;
-$bp-xl: 94rem;
+
+
+$bp-xsm: 22rem; // 352px (20rem) gutter: 1rem*2
+$bp-sml: 30rem; // 480px (28rem) gutter: 1rem*2
+$bp-med: 45rem; // 720px (2x20rem + 1spc) gutter: 2rem * 2
+$bp-lrg: 61rem; // 976px (2x28rem + 1spc) gutter: 2rem * 2
+$bp-xlg: 68rem; // 1088px (3x20rem + 2sp*2) gutter: 2rem * 2
+$bp-xxl: 92rem; // 1472px (3x28rem + 2sp*2) gutter: 2rem * 2
 
 // Media query mixin.
 @mixin media($breakpoint: 1024px) {

@@ -46,7 +46,7 @@
 	}
 
 	&.text-window--css-colors {
-		margin-bottom: $spacer;
+		margin-bottom: $space;
 	}
 }
 
@@ -102,7 +102,7 @@
 	height: 100%;
 	margin: 0;
 	outline: none;
-	padding: $spacer;
+	padding: $space;
 	resize: vertical;
 	width: 100%;
 	word-break: break-word;
@@ -121,7 +121,7 @@
 	justify-content: center;
 	left: 0;
 	line-height: 1;
-	padding: $spacer-lg;
+	padding: $space-lg;
 	pointer-events: none;
 	position: absolute;
 	text-align: center;

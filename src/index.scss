@@ -7,7 +7,6 @@
 @import-normalize;
 
 @import './theme/index.scss';
-// @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@400;700&subset=latin,latin-ext&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
 
 body {
@@ -33,7 +32,7 @@ h4,
 h5,
 h6 {
 	color: $color-header;
-	margin: 0 0 $spacer-sm;
+	margin: 0 0 $space-sm;
 }
 
 h1,

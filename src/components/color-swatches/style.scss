@@ -12,19 +12,32 @@
 
 .color-swatches__heading {
 	@include section-heading();
-	margin-bottom: $spacer;
+	margin-bottom: $space;
 }
 
 .color-swatches__list {
-	display: grid;
-	grid-gap: $spacer;
-	grid-template-columns: repeat(auto-fit, minmax(22rem , 1fr));
 	list-style: none;
-	margin: 0 auto $spacer-lg;
-	min-width: 22rem;
+	margin: 0 auto $space-lg;
+	min-width: 20rem;
 	padding: 0;
+
+	@include media($bp-med) {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include media($bp-xlg) {
+		grid-gap: 2rem;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 
 .color-swatches__list-item {
+	margin: 0 0 1rem;
 	padding: 0;
+
+	@include media($bp-med) {
+		margin: 0;
+	}
 }

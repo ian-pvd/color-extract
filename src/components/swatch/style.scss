@@ -14,10 +14,12 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	max-width: 30rem;
+	max-width: 28rem;
+	min-width: 20rem;
 	outline: $border-ui-active;
-	padding: $spacer-sm;
+	padding: $space-sm;
 	position: relative;
+	width: 100%;
 
 	&:focus-within {
 		box-shadow: $shadow-ui-focus;
@@ -105,7 +107,7 @@
 .swatch__list-item {
 	border-radius: px(4); //use var
 	display: flex;
-	margin: 0 0 $spacer-xs;
+	margin: 0 0 $space-xs;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
