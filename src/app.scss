@@ -7,14 +7,13 @@
 
 main {
 	margin: 0 auto $space-lg;
-	width: 100%;
-
 	max-width: 40rem;
 	padding: 0 1rem;
+	width: 100%;
 
 	@include media($bp-med) {
-		padding: 0 2rem;
 		max-width: 61rem;
+		padding: 0 2rem;
 	}
 
 	@include media($bp-xlg) {

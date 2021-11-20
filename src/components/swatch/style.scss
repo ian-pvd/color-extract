@@ -29,7 +29,7 @@
 
 .swatch__chip,
 .swatch__name {
-	margin: 0 0 1.5rem; // use spacer
+	margin: 0 0 1.5rem;
 }
 
 .swatch__chip {
@@ -59,7 +59,7 @@
 		color: var(--swatch-color);
 		content: attr(data-color);
 		display: block;
-		font-family: 'Poppins', monospace; // use font var.
+		font-family: $font-family-heading;
 		font-size: clamp(2.5rem, 4vw, 4rem);
 		font-variant-numeric: tabular-nums;
 		font-weight: 700;
@@ -68,14 +68,14 @@
 		line-height: 1;
 		opacity: 0;
 		position: absolute;
-		text-shadow: -2px -2px 0 #ffffff66, 2px 2px 0 #00000066; // use color vars.
+		text-shadow: -2px -2px 0 $c-white-a40, 2px 2px 0 $c-black-a40;
 		text-transform: uppercase;
 		top: 50%;
 		transform: translate(-50%, -50%);
 		transition:
 			opacity 500ms cubic-bezier(0, 0.75, 0.6, 1),
 			text-shadow 250ms cubic-bezier(0, 0.75, 0.6, 1);
-		z-index: 10; // use z-index.
+		z-index: $z-layout;
 	}
 
 	&:hover::after {
@@ -83,7 +83,7 @@
 	}
 
 	&:active::after {
-		text-shadow: -2px -2px 0 #00000066, 2px 2px 0 #ffffff66; // use color vars.
+		text-shadow: -2px -2px 0 $c-black-a40, 2px 2px 0 $c-white-a40;
 	}
 }
 
@@ -105,8 +105,9 @@
 }
 
 .swatch__list-item {
-	border-radius: px(4); //use var
+	border-radius: 4px;
 	display: flex;
+	height: $size-btn;
 	margin: 0 0 $space-xs;
 	overflow: hidden;
 	position: relative;
@@ -117,19 +118,19 @@
 	}
 
 	&:focus-within {
-		outline: 1px solid whitesmoke; // use outline var, use color var
+		outline: $outline-ui-active;
 	}
 }
 
 .swatch__label {
 	align-items: center;
-	background: linear-gradient(90deg, transparent, #2c2c2c 25%, #2c2c2c); // use background var, use color var.
-	color: #101010; // use color var.
+	background: $shadow-label;
+	color: $color-ui;
 	display: flex;
-	font-size: px(14); // use font size var.
+	font-size: $font-size-sm;
 	height: 100%;
 	justify-content: flex-end;
-	padding: 4px 12px; // use spacing vars.
+	padding: 0.25rem 0.75rem;
 	pointer-events: none;
 	position: absolute;
 	right: 0;
@@ -148,44 +149,58 @@
 
 .swatch__value {
 	appearance: none;
-	background-color: #2c2c2c; // use color var.
+	background-color: $bg-input;
 	border: none;
-	color: whitesmoke; // use color var.
+	color: $color-ui-active;
 	outline: none;
-	padding: 8px 12px; // use spacing vars.
+	padding: 0.5rem 0.75rem;
 	width: 100%;
+
+	.swatch__list-item:focus-within & {
+		color: $color-ui-focus;
+	}
 }
 
 .swatch__copy-button {
-	background: #2c2c2c; // use color var.
+	@include hide-text();
+	background: transparent;
 	border: none;
-	border-left: 1px solid #1f1f1f; // use color var.
-	color: grey; // use color var.
+	border-left: 2px solid $bg-ui;
 	cursor: copy;
-	height: 2rem; // use button size var.
+	height: $size-btn;
 	opacity: 0;
-	overflow: hidden;
 	position: absolute;
-	right: -2rem; // use button size var.
-	text-indent: calc(100% + 1rem); // use mixin to hide text.
+	right: #{-$size-btn};
 	transition: right 125ms ease-in, opacity 300ms ease-in;
-	white-space: nowrap;
-	width: 2rem; // use button size var.
+	width: $size-btn;
 
 	svg {
 		display: block;
-		fill: grey; // use color var.
+		fill: $color-ui;
 		height: 100%;
 		left: 0;
-		padding: 6px;
+		padding: 0.375rem;
 		position: absolute;
 		top: 0;
 		transform: scaleX(-1);
 		width: 100%;
 	}
 
+	&:hover,
 	&:focus {
-		// don't animate position on focus, causes layout issues.
+		svg {
+			fill: $color-ui-active;
+		}
+	}
+
+	&:active {
+
+		svg {
+			fill: $color-ui-focus;
+		}
+	}
+
+	&:focus {
 		transition: none;
 	}
 

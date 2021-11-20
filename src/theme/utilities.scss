@@ -31,3 +31,9 @@
 	letter-spacing: $letter-spacing;
 	text-align: center;
 }
+
+@mixin hide-text() {
+	overflow: hidden;
+	text-indent: calc(100% + 1rem);
+	white-space: nowrap;
+}

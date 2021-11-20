@@ -13,7 +13,7 @@ body {
 	background-color: $color-background;
 	box-sizing: border-box;
 	color: $color-text;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: $font-family-body;
 	line-height: $line-height;
 	margin: 0;
 }
@@ -41,12 +41,12 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Poppins', sans-serif;
+	font-family: $font-family-heading;
 }
 
 [type='text'],
 textarea {
-	font-family: 'Ubuntu Mono', monospace;
+	font-family: $font-family-mono;
 	font-size: $font-size-mono;
 }
 

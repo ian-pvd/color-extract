@@ -15,6 +15,8 @@ $c-shark-dark: desaturate(#1d1e20, 100%);
 $c-shark: desaturate(#2e2f33, 100%);
 $c-silver: #bababa;
 $c-white: #ffffff;
+$c-black-a40: rgba(0, 0, 0, 40%);
+$c-white-a40: rgba(255, 255, 255, 40%);
 
 // Context specific variables.
 $color-background: $c-outer-space;
@@ -29,11 +31,13 @@ $color-ui: $c-boulder;
 // Backgrounds & Gradients
 $bg-transparency-grid: repeating-conic-gradient($c-white 0deg 90deg, $c-gray 0deg 180deg) 0 2rem/2rem 2rem round;
 $bg-ui: $c-shark-dark;
+$bg-input: $c-mine-shaft;
 
 // Borders & Outlines
-$border-ui-focus: 1px solid darken($c-shark-dark, 50%);
 $border-ui-active: 1px solid darken($c-shark-dark, 25%);
+$border-ui-focus: 1px solid darken($c-shark-dark, 50%);
 $border-ui: 1px solid darken($c-shark-dark, 10%);
+$outline-ui-active: 1px solid $color-ui-active;
 
 // Inputs
 $input-ui-active: $c-outer-space;
@@ -43,7 +47,8 @@ $input-ui: $c-outer-space;
 // Box Shadows
 $shadow-buttons-focus: 13px 0 $input-ui-focus, 33px 0 $input-ui-focus, 53px 0 $input-ui-focus;
 $shadow-buttons: 13px 0 $input-ui, 33px 0 $input-ui, 53px 0 $input-ui;
+$shadow-header: 0 1px 1px $bg-ui;
+$shadow-label: linear-gradient(90deg, transparent, $bg-input 25%, $bg-input);
 $shadow-ui-active: 0 1rem 2rem -1rem darken($c-shark-dark, 1.25%);
 $shadow-ui-focus: 0 1rem 2rem -1rem darken($c-shark-dark, 5%);
-$shadow-header: 0 1px 1px $bg-ui;
 $shadow-ui: inset 0 0 2rem darken($c-shark-dark, 2.5%);
