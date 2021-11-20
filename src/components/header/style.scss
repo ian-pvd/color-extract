@@ -1,0 +1,27 @@
+/**
+ * Header
+ *
+ * Site header styles.
+ */
+
+@import '../../theme/index.scss';
+
+.header {
+	background-color: $bg-ui;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto $space-lg;
+	padding: $space;
+}
+
+.header__title {
+	color: $color-branding;
+	letter-spacing: $letter-spacing-xl;
+	margin: 0 auto;
+	text-transform: uppercase;
+}
+
+.header__description {
+	@include screen-reader-text();
+}

@@ -1,0 +1,136 @@
+/**
+ * Text Window
+ *
+ * The textarea for pasting the mixed CSS input text.
+ */
+
+@import '../../theme/index.scss';
+
+.text-window {
+	background-color: $bg-ui;
+	border: $border-ui;
+	border-radius: px(6);
+	box-shadow: $shadow-ui;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+
+	&::before {
+		background-color: transparent;
+		border-radius: 50%;
+		box-shadow: $shadow-buttons;
+		content: '';
+		display: block;
+		height: px(12);
+		left: 0;
+		position: absolute;
+		top: 1rem;
+		width: px(12);
+		word-wrap: break-word;
+		z-index: 10;
+	}
+
+	&:focus-within {
+		border: $border-ui-focus;
+		box-shadow: $shadow-ui-focus;
+
+		&::before {
+			box-shadow: $shadow-buttons-focus;
+		}
+	}
+
+	&.text-window--active {
+		border: $border-ui-active;
+		box-shadow: $shadow-ui-active;
+	}
+
+	&.text-window--css-colors {
+		margin-bottom: $space;
+	}
+}
+
+.text-window__header {
+	align-items: center;
+	box-shadow: $shadow-header;
+	color: $color-ui-active;
+	display: flex;
+	height: 3rem;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+
+	.text-window:focus-within & {
+		color: $color-ui-focus;
+	}
+}
+
+.text-window__heading {
+	@include screen-reader-text();
+}
+
+.text-window__window-title {
+	font-family: $font-family-mono;
+	font-size: $font-size-mono;
+	line-height: 1rem;
+}
+
+.text-window__wrapper {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	max-height: 75vh;
+	min-height: 12rem;
+	position: relative;
+	width: 100%;
+
+	.text-window--paste-area & {
+		min-height: 8rem;
+	}
+
+	.text-window--css-colors & {
+		min-height: 16rem;
+	}
+}
+
+.text-window__textarea {
+	@include textarea();
+	background-color: transparent;
+	border: none;
+	color: $color-ui-active;
+	display: block;
+	flex-grow: 1;
+	height: 100%;
+	margin: 0;
+	outline: none;
+	padding: $space;
+	resize: vertical;
+	width: 100%;
+	word-break: break-word;
+	z-index: 0;
+
+	&:focus {
+		color: $color-ui-focus;
+	}
+}
+
+.text-window__label {
+	@include cta-prompt();
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	line-height: 1;
+	padding: $space-lg;
+	pointer-events: none;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+
+	.text-window--active &,
+	.text-window:focus-within & {
+		display: none;
+	}
+}

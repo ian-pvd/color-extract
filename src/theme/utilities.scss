@@ -1,0 +1,46 @@
+/**
+ * Theme SCSS Utilities
+ */
+
+/* Functions */
+@function px($px, $base: 16) {
+	@return #{$px / $base}rem;
+}
+
+/* Mixins */
+@mixin cta-prompt() {
+	color: $color-ui;
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+
+@mixin screen-reader-text() {
+	border: none;
+	clip: rect(px(1), px(1), px(1), px(1));
+	clip-path: inset(50%);
+	height: px(1);
+	margin: px(-1);
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: px(1);
+	word-wrap: normal !important;
+}
+
+@mixin section-heading() {
+	letter-spacing: $letter-spacing;
+	text-align: center;
+}
+
+@mixin hide-text() {
+	overflow: hidden;
+	text-indent: calc(100% + 1rem);
+	white-space: nowrap;
+}
+
+@mixin textarea() {
+	font-family: $font-family-mono;
+	font-size: $font-size-mono;
+	letter-spacing: $letter-spacing-textarea;
+	line-height: $line-height-sm;
+}

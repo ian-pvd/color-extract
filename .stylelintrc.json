@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "plugins": [
+    "stylelint-declaration-strict-value",
+    "stylelint-order"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "alpha-value-notation": "number",
+    "at-rule-no-unknown": [true, {"ignoreAtRules": ["function","return","mixin","include"]}],
+    "block-no-empty": [true, {"severity": "warning"}],
+    "color-function-notation": "legacy",
+    "color-hex-case": ["lower"],
+    "color-hex-length": "long",
+    "declaration-empty-line-before": "never",
+    "font-family-name-quotes": "always-unless-keyword",
+    "indentation": "tab",
+    "max-empty-lines": 1,
+    "max-line-length": [80, {"ignorePattern":["/^\\$/"]}],
+    "order/properties-alphabetical-order": true,
+    "rule-empty-line-before": ["always-multi-line", {"ignore": ["after-comment","first-nested"]}],
+    "scale-unlimited/declaration-strict-value": [["background", "border", "box-shadow", "outline", "/color$/"],{"ignoreValues": ["currentColor","inherit","initial","none","revert","transparent","unset"], "disableFix": true}],
+    "selector-class-pattern": "^.[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "string-quotes": "single",
+    "unit-allowed-list": [["em", "rem", "%", "vh", "vw", "deg", "s", "ms","fr"], {"ignoreProperties": {"px": ["/^\\$/","border","/^border-/","outline","outline-width","text-shadow"]}}]
+  }
+}

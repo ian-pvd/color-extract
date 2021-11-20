@@ -8,10 +8,21 @@ $font-size-sm: 0.875rem;
 $font-size: 1rem;
 $font-size-lg: 1.25rem;
 $font-size-xl: 1.75rem;
-$font-size-mono: 15px;
+$font-size-mono: px(15);
 
 // Line Heights
 $line-height-sm: 1.25;
 $line-height: calc(4 / 3);
 $line-height-lg: 1.5;
 $line-height-xl: calc(5 / 3);
+
+// Letter Spacing
+$letter-spacing: calc(10em / 1000);
+$letter-spacing-lg: calc(25em / 1000);
+$letter-spacing-xl: calc(75em / 1000);
+$letter-spacing-textarea: 0.25px; // Anything smaller than this breaks line wrapping?
+
+// Font Families
+$font-family-body: 'Ubuntu', sans-serif;
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-mono: 'Ubuntu Mono', monospace;

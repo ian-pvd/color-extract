@@ -10,20 +10,34 @@
 	display: block;
 }
 
+.color-swatches__heading {
+	@include section-heading();
+	margin-bottom: $space;
+}
+
 .color-swatches__list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0 0 $spacer;
-    padding: 0;
+	list-style: none;
+	margin: 0 auto $space-lg;
+	min-width: 20rem;
+	padding: 0;
+
+	@include media($bp-med) {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media($bp-xlg) {
+		grid-gap: 2rem;
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 .color-swatches__list-item {
-    margin: 0 $spacer-sm $spacer-sm 0;
-    padding: 0;
-    width: calc((100% - (#{$spacer-sm} * 2)) / 3);
+	margin: 0 0 1rem;
+	padding: 0;
 
-    &:nth-child(3n) {
-        margin-right: 0;
-    }
+	@include media($bp-med) {
+		margin: 0;
+	}
 }

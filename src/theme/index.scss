@@ -4,10 +4,15 @@
  * Common font, color & spacing variables.
  */
 
+// Import Core Mixins
+@import './utilities.scss';
+
+// Import Core Variables
 @import './color.scss';
 @import './layout.scss';
 @import './typography.scss';
+@import './breakpoints.scss';
 
 :root {
-    --swatch-color: hsla(0deg, 0%, 100%, 0.5);
+	--swatch-color: hsla(0deg, 0%, 100%, 0.5);
 }
