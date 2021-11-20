@@ -90,16 +90,8 @@ export const getNamedColors = (colorsList) => {
     }
   });
 
-  // Return the processed list of named colors.
-  // return namedColors;
-  // todo return the named color sorted alpha
-  return Object.keys(namedColors).sort().reduce(
-    (obj, key) => {
-      obj[key] = namedColors[key];
-      return obj;
-     },
-    {}
-  );
+  // Return an alpha sorted list of named colors.
+  return sortColors(namedColors);
 }
 
 /**
@@ -149,7 +141,7 @@ export const cmykString = (color) => {
  * @param  {array} colors Input array of colors.
  * @return {string}       Average color.
  */
-export const averageColor = ( colors ) => {
+export const averageColor = (colors) => {
   const [totalR, totalG, totalB] = colors.reduce((prev, curr) => {
     curr = curr.substring(1);
 
@@ -167,4 +159,23 @@ export const averageColor = ( colors ) => {
     Math.round(totalR).toString(16).padStart(2, '0') +
     Math.round(totalG).toString(16).padStart(2, '0') +
     Math.round(totalB).toString(16).padStart(2, '0');
+};
+
+/**
+ * Sort Colors
+ *
+ * Sorts a color object alphabetically.
+ *
+ * @param  {object} colors An object of color values.
+ * @return {object}        A sorted list of color values.
+ */
+export const sortColors = (colors) => {
+
+  return Object.keys(colors).sort().reduce(
+    (obj, key) => {
+      obj[key] = colors[key];
+      return obj;
+    },
+    {}
+  );
 };
