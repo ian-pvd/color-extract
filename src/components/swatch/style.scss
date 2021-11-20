@@ -37,10 +37,18 @@
 	cursor: copy;
 	display: block;
 	flex-shrink: 0;
-	min-height: 8rem;
+	height: 8rem;
 	outline: $border-ui-active;
 	position: relative;
 	width: 100%;
+
+	@include media($bp-med) {
+		height: 10rem;
+	}
+
+	@include media($bp-xlg) {
+		height: 12rem;
+	}
 
 	&::before {
 		background: var(--swatch-color);
@@ -113,6 +121,14 @@
 	position: relative;
 	width: 100%;
 
+	@include media($bp-xlg) {
+		margin-bottom: $space-sm;
+	}
+
+	@include media($bp-xxl) {
+		height: $size-btn-lg;
+	}
+
 	&:last-child {
 		margin: 0;
 	}
@@ -145,9 +161,15 @@
 	.swatch__list-item:focus-within & {
 		opacity: 0;
 	}
+
+	@include media($bp-xxl) {
+		font-size: $font-size-mono;
+	}
 }
 
 .swatch__value {
+	font-family: $font-family-mono;
+	font-size: $font-size-mono;
 	appearance: none;
 	background-color: $bg-input;
 	border: none;
@@ -155,9 +177,15 @@
 	outline: none;
 	padding: 0.5rem 0.75rem;
 	width: 100%;
+	letter-spacing: $letter-spacing;
+	line-height: 1;
 
 	.swatch__list-item:focus-within & {
 		color: $color-ui-focus;
+	}
+
+	@include media($bp-xxl) {
+		font-size: 1rem;
 	}
 }
 
@@ -173,6 +201,12 @@
 	right: #{-$size-btn};
 	transition: right 125ms ease-in, opacity 300ms ease-in;
 	width: $size-btn;
+
+	@include media($bp-xxl) {
+		height: $size-btn-lg;
+		right: #{-$size-btn-lg};
+		width: $size-btn-lg;
+	}
 
 	svg {
 		display: block;

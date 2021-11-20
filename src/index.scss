@@ -43,19 +43,3 @@ h5,
 h6 {
 	font-family: $font-family-heading;
 }
-
-[type='text'],
-textarea {
-	font-family: $font-family-mono;
-	font-size: $font-size-mono;
-}
-
-[type='text'] {
-	letter-spacing: $letter-spacing;
-	line-height: 1;
-}
-
-textarea {
-	letter-spacing: $letter-spacing-textarea;
-	line-height: $line-height-sm;
-}

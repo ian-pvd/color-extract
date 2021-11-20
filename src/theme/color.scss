@@ -15,8 +15,8 @@ $c-shark-dark: desaturate(#1d1e20, 100%);
 $c-shark: desaturate(#2e2f33, 100%);
 $c-silver: #bababa;
 $c-white: #ffffff;
-$c-black-a40: rgba(0, 0, 0, 40%);
-$c-white-a40: rgba(255, 255, 255, 40%);
+$c-black-a40: rgba(0, 0, 0, 0.4);
+$c-white-a40: rgba(255, 255, 255, 0.4);
 
 // Context specific variables.
 $color-background: $c-outer-space;

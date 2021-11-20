@@ -8,6 +8,7 @@
   ],
   "customSyntax": "postcss-scss",
   "rules": {
+    "alpha-value-notation": "number",
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["function","return","mixin","include"]}],
     "block-no-empty": [true, {"severity": "warning"}],
     "color-function-notation": "legacy",

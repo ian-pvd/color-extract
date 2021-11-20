@@ -37,3 +37,10 @@
 	text-indent: calc(100% + 1rem);
 	white-space: nowrap;
 }
+
+@mixin textarea() {
+	font-family: $font-family-mono;
+	font-size: $font-size-mono;
+	letter-spacing: $letter-spacing-textarea;
+	line-height: $line-height-sm;
+}

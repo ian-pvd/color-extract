@@ -94,6 +94,7 @@
 }
 
 .text-window__textarea {
+	@include textarea();
 	background-color: transparent;
 	border: none;
 	color: $color-ui-active;
