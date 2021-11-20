@@ -60,7 +60,7 @@ export const dedupeColors = (colorsList) => {
  * @link https://www.npmjs.com/package/@bencevans/color-array-average
  */
 export const getNamedColors = (colorsList) => {
-  // Create an empty array to store the names of the colors.
+  // Create an empty object to store the names of the colors.
   const colorNames = {};
   // Iterate through every unique hex color in the list.
   colorsList.forEach( (color) => {
@@ -76,7 +76,7 @@ export const getNamedColors = (colorsList) => {
       }
   });
 
-  // Create an empty array to store the unique color names.
+  // Create an empty object to store the unique color names.
   const namedColors = {};
   // Iterate through each slug in the named colors array.
   Object.keys(colorNames).forEach( (name) => {
@@ -91,7 +91,15 @@ export const getNamedColors = (colorsList) => {
   });
 
   // Return the processed list of named colors.
-  return namedColors;
+  // return namedColors;
+  // todo return the named color sorted alpha
+  return Object.keys(namedColors).sort().reduce(
+    (obj, key) => {
+      obj[key] = namedColors[key];
+      return obj;
+     },
+    {}
+  );
 }
 
 /**

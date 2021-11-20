@@ -9,9 +9,9 @@
 
 // Import Core Variables
 @import './color.scss';
-@import './display.scss';
 @import './layout.scss';
 @import './typography.scss';
+@import './breakpoints.scss';
 
 :root {
 	--swatch-color: hsl(0deg, 0%, 100%, 50%);

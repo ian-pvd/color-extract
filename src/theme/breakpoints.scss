@@ -1,0 +1,17 @@
+/**
+ * Theme breakpoint variables.
+ */
+
+// Breakpoint Variables.
+$bp-small: 448px;
+$bp-med: 768px;
+$bp-lrg: 1024px;
+$bp-xl: 94rem;
+
+// Media query mixin.
+@mixin media($breakpoint: 1024px) {
+    @media (min-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
