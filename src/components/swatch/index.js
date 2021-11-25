@@ -36,7 +36,7 @@ class Swatch extends React.Component {
             <li className="swatch__list-item">
               <label className="swatch__label">PostCSS</label>
               <input type="text" className="swatch__value" value={postcssString(hexColor)} readOnly />
-              <button className="swatch__copy-button">Copy  onClick={() => onClickCopy(postcssString(hexColor))}PostCSS color variable.<IconCopy /></button>
+              <button className="swatch__copy-button" onClick={() => onClickCopy(postcssString(hexColor))}>Copy PostCSS color variable.<IconCopy /></button>
             </li>
             <li className="swatch__list-item">
               <label className="swatch__label">Hex</label>
