@@ -150,18 +150,13 @@ export const sortColors = (colors) => {
 
 /**
  * Clicking the Copy Button
- */
-
-
-/**
- * Clicking the Copy Button
  *
  * @param  {object} e    The button clicked.
  * @param  {string} text The text to copy.
  */
-export const onClickCopy = (e, text) => {
+export const onClickCopy = (text) => {
   navigator.clipboard.writeText(text).then(function() {
     /* TODO: clipboard successfully set event. */
-    e.target.closest('li.swatch__list-item').classList.add('copied');
+    document.body.classList.add('copy-event');
   });
 };
