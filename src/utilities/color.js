@@ -149,18 +149,19 @@ export const sortColors = (colors) => {
 };
 
 /**
- * [description]
- * @param  {[type]} e [description]
- * @return {[type]}   [description]
+ * Clicking the Copy Button
+ */
+
+
+/**
+ * Clicking the Copy Button
+ *
+ * @param  {object} e    The button clicked.
+ * @param  {string} text The text to copy.
  */
 export const onClickCopy = (e, text) => {
   navigator.clipboard.writeText(text).then(function() {
-    /* clipboard successfully set */
-    console.log('clipboard copied');
+    /* TODO: clipboard successfully set event. */
     e.target.closest('li.swatch__list-item').classList.add('copied');
-    // e.target.closest('li.swatch__list-item').classList.remove('copied');
-  }, function() {
-    /* clipboard write failed */
-    console.log('did not copy clipboard');
   });
 };
