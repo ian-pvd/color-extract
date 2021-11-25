@@ -179,6 +179,7 @@
 	width: 100%;
 	letter-spacing: $letter-spacing;
 	line-height: 1;
+	transition: background-color 125ms ease-in;
 
 	.swatch__list-item:focus-within & {
 		color: $color-ui-focus;
@@ -186,6 +187,10 @@
 
 	@include media($bp-xxl) {
 		font-size: 1rem;
+	}
+
+	.copied & {
+		background-color: red;
 	}
 }
 
