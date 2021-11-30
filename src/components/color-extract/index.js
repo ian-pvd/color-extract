@@ -25,8 +25,26 @@ class ColorExtract extends React.Component {
 
   getCssText = () => {
     if (this.props.hasInput) {
-        return `/* ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('color names', Object.keys(this.props.namedColors).length, true)} */\n\n:root {\n${Object.keys(this.props.namedColors).map((name) => `\t--color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
+      let cssOutput = `
+        /**
+         * Color Extract
+         * ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('color names', Object.keys(this.props.namedColors).length, true)}.
+         */
+
+        `.replace(/ {8}/g, '');
+
+      /* WIP: Toggle Hack. */
+      const cssFormat = 'postcss';
+      if ( cssFormat === 'postcss' ) {
+        cssOutput += `:root {\n${Object.keys(this.props.namedColors).map((name) => `  --color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
+      } else {
+        cssOutput += `${Object.keys(this.props.namedColors).map((name) => `$color-${name}: ${this.props.namedColors[name]};\n`).join('')}`;
+      }
+
+      return cssOutput;
     }
+
+    /* Return placeholder results text. */
     return '/* Paste your text in the input area to see the color variables here. */';
   }
 
