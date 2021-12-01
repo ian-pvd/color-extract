@@ -92,6 +92,11 @@
 		width: $size-btn-lg;
 	}
 
+	&[disabled] {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
 	svg {
 		display: block;
 		fill: $color-ui;
@@ -104,15 +109,15 @@
 		width: 100%;
 	}
 
-	&:hover,
-	&:focus {
+	&:not([disabled]):hover,
+	&:not([disabled]):focus {
 
 		svg {
 			fill: $color-ui-active;
 		}
 	}
 
-	&:active {
+	&:not([disabled]):active {
 
 		svg {
 			fill: $color-ui-focus;

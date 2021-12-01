@@ -41,7 +41,7 @@ class ColorExtract extends React.Component {
         cssOutput += `${Object.keys(this.props.namedColors).map((name) => `$color-${name}: ${this.props.namedColors[name]};\n`).join('')}`;
       }
 
-      return cssOutput;
+      return cssOutput.trim();
     }
 
     /* Return placeholder results text. */
