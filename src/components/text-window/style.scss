@@ -75,6 +75,51 @@
 	line-height: 1rem;
 }
 
+.text-window__copy-button {
+	@include hide-text();
+	appearance: none;
+	background: transparent;
+	border: $border-ui;
+	cursor: copy;
+	height: $size-btn;
+	position: absolute;
+	right: 13px;
+	width: $size-btn;
+
+	@include media($bp-xxl) {
+		height: $size-btn-lg;
+		right: $size-btn-lg;
+		width: $size-btn-lg;
+	}
+
+	svg {
+		display: block;
+		fill: $color-ui;
+		height: 100%;
+		left: 0;
+		padding: 0.375rem;
+		position: absolute;
+		top: 0;
+		transform: scaleX(-1);
+		width: 100%;
+	}
+
+	&:hover,
+	&:focus {
+
+		svg {
+			fill: $color-ui-active;
+		}
+	}
+
+	&:active {
+
+		svg {
+			fill: $color-ui-focus;
+		}
+	}
+}
+
 .text-window__wrapper {
 	display: flex;
 	flex-direction: column;

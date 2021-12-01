@@ -7,7 +7,7 @@
 import React from 'react';
 import Color from 'color';
 import ntc from '@yatiac/name-that-color';
-import { ReactComponent as IconCopy } from './copy.svg';
+import { ReactComponent as IconCopy } from '../../images/copy.svg';
 
 import { scssString, postcssString, cmykString, onClickCopy } from '../../utilities/color.js';
 import './style.scss';

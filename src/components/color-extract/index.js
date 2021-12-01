@@ -28,13 +28,13 @@ class ColorExtract extends React.Component {
       let cssOutput = `
         /**
          * Color Extract
-         * ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('color names', Object.keys(this.props.namedColors).length, true)}.
+         * ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('named colors', Object.keys(this.props.namedColors).length, true)}.
          */
 
         `.replace(/ {8}/g, '');
 
       /* WIP: Toggle Hack. */
-      const cssFormat = 'postcss';
+      const cssFormat = 'scss';
       if ( cssFormat === 'postcss' ) {
         cssOutput += `:root {\n${Object.keys(this.props.namedColors).map((name) => `  --color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
       } else {
@@ -87,6 +87,8 @@ class ColorExtract extends React.Component {
       windowTitle: 'colors.css',
       // Value
       textValue: this.getCssText(),
+      // Show Copy Button?
+      copyButton: true,
       // Attribute Options
       attributes: {
         // Read-only?
@@ -104,7 +106,7 @@ class ColorExtract extends React.Component {
           <TextWindow textOptions={inputTextOptions}/>
         </div>
         <div className="color-extract__results">
-          <TextWindow textOptions={resultsTextOptions}/>
+          <TextWindow textOptions={resultsTextOptions} colorsListLength={this.props.colorsList.length}/>
           {(this.props.hasInput && 0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) &&
             <ColorSwatches colorsList={this.props.colorsList} />
           }
