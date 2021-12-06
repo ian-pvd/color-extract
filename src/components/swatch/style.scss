@@ -33,12 +33,16 @@
 }
 
 .swatch__chip {
+	appearance: none;
 	background: $bg-transparency-grid;
+	border: none;
 	cursor: copy;
 	display: block;
 	flex-shrink: 0;
 	height: 8rem;
 	outline: $border-ui-active;
+	overflow: hidden;
+	padding: 0;
 	position: relative;
 	width: 100%;
 
@@ -222,6 +226,7 @@
 
 	&:hover,
 	&:focus {
+
 		svg {
 			fill: $color-ui-active;
 		}

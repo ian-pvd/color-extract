@@ -5,6 +5,8 @@
  */
 
 import React from 'react';
+import { ReactComponent as IconCopy } from '../../images/copy.svg';
+import { onClickCopy } from '../../utilities/color.js';
 import './style.scss';
 
 class TextWindow extends React.Component {
@@ -18,6 +20,9 @@ class TextWindow extends React.Component {
         <header className="text-window__header">
           <h2 className="text-window__heading">{this.props.textOptions.headingText}</h2>
           <span className="text-window__window-title">{this.props.textOptions.windowTitle}</span>
+          {this.props.textOptions.copyButton &&
+            <button className="text-window__copy-button" onClick={() => onClickCopy(document.getElementById(`text-window-${this.props.textOptions.slug}`).value)} disabled={this.props.colorsListLength <= 0}>Copy css color variables.<IconCopy /></button>
+          }
         </header>
         <div className="text-window__wrapper">
           <textarea

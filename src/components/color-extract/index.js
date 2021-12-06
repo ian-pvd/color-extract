@@ -25,8 +25,26 @@ class ColorExtract extends React.Component {
 
   getCssText = () => {
     if (this.props.hasInput) {
-        return `/* ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('color names', Object.keys(this.props.namedColors).length, true)} */\n\n:root {\n${Object.keys(this.props.namedColors).map((name) => `\t--color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
+      let cssOutput = `
+        /**
+         * Color Extract
+         * ${pluralize('unique color', this.props.colorsList.length, true)} found, with ${pluralize('named colors', Object.keys(this.props.namedColors).length, true)}.
+         */
+
+        `.replace(/ {8}/g, '');
+
+      /* WIP: Toggle Hack. */
+      const cssFormat = 'scss';
+      if ( cssFormat === 'postcss' ) {
+        cssOutput += `:root {\n${Object.keys(this.props.namedColors).map((name) => `  --color-${name}: ${this.props.namedColors[name]};\n`).join('')}}`;
+      } else {
+        cssOutput += `${Object.keys(this.props.namedColors).map((name) => `$color-${name}: ${this.props.namedColors[name]};\n`).join('')}`;
+      }
+
+      return cssOutput.trim();
     }
+
+    /* Return placeholder results text. */
     return '/* Paste your text in the input area to see the color variables here. */';
   }
 
@@ -69,6 +87,8 @@ class ColorExtract extends React.Component {
       windowTitle: 'colors.css',
       // Value
       textValue: this.getCssText(),
+      // Show Copy Button?
+      copyButton: true,
       // Attribute Options
       attributes: {
         // Read-only?
@@ -86,7 +106,7 @@ class ColorExtract extends React.Component {
           <TextWindow textOptions={inputTextOptions}/>
         </div>
         <div className="color-extract__results">
-          <TextWindow textOptions={resultsTextOptions}/>
+          <TextWindow textOptions={resultsTextOptions} colorsListLength={this.props.colorsList.length}/>
           {(this.props.hasInput && 0 < this.props.colorsList.length && 0 < Object.keys(this.props.namedColors).length) &&
             <ColorSwatches colorsList={this.props.colorsList} />
           }
