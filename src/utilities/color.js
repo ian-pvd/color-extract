@@ -156,7 +156,23 @@ export const sortColors = (colors) => {
  */
 export const onClickCopy = (text) => {
   navigator.clipboard.writeText(text).then(function() {
-    /* TODO: clipboard successfully set event. */
+    // If copy event, remove it.
+    document.body.classList.remove('copy-event');
+    // Get copy notice element.
+    const copyNotice = document.querySelector('.copy-notice span tt');
+    if ( copyNotice ) {
+      if ( 64 > text.length ) {
+        copyNotice.textContent = text;
+      } else {
+        copyNotice.textContent = '';
+      }
+    }
+    // Add copy event.
     document.body.classList.add('copy-event');
+    // Wait 300ms
+    setTimeout( () => {
+      // Remove
+      document.body.classList.remove('copy-event');
+    }, (3000));
   });
 };

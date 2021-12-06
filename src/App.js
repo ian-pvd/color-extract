@@ -8,6 +8,7 @@ import React from 'react';
 /* Component dependencies. */
 import Header from './components/header';
 import ColorExtract from './components/color-extract';
+import CopyNotice from './components/copy-notice';
 import { findColors, getNamedColors } from './utilities/color.js';
 
 /* Style dependencies. */
@@ -81,6 +82,7 @@ class App extends React.Component {
             <h2 className="section-heading">Credits & Copyright</h2>
           </section>
         </footer>
+        <CopyNotice />
       </div>
     );
   }

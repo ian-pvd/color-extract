@@ -1,0 +1,42 @@
+/**
+ * Copy Notice
+ *
+ * Styles for copy event notice.
+ */
+
+@import '../../theme/index.scss';
+
+.copy-notice {
+	background: $bg-ui;
+	border-radius: 4px;
+	border: $border-ui;
+	bottom: -6rem;
+	box-shadow: $shadow-ui-active;
+	color: $color-ui-active;
+	opacity: 0;
+	padding: 2rem;
+	pointer-events: none;
+	position: fixed;
+	right: 2rem;
+	transition: bottom 250ms ease-in, opacity 500ms ease-in;
+
+	.copy-event & {
+		transition: bottom 125ms ease-in, opacity 125ms ease-in;
+		opacity: 1;
+		bottom: 2rem;
+	}
+
+	tt {
+		background: $color-ui;
+		border-radius: 2px;
+		color: $bg-ui;
+		display: inline-block;
+		margin: calc( 1rem / 3);
+		padding: 2px 4px;
+		line-height: 1.25;
+
+		&:empty {
+			display: none;
+		}
+	}
+}
