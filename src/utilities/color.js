@@ -103,7 +103,6 @@ export const scssString = (color) => {
   return `$color-${slugify(ntc(color).colorName,{lower: true})}: ${color};`;
 }
 
-
 /**
  * PostCSS String
  *
@@ -112,7 +111,6 @@ export const scssString = (color) => {
 export const postcssString = (color) => {
   return `--color-${slugify(ntc(color).colorName,{lower: true})}: ${color};`;
 }
-
 
 /**
  * CMYK String
